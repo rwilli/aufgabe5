@@ -4,8 +4,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>200</x>
-      <y>405</y>
+      <x>125</x>
+      <y>490</y>
       <w>125</w>
       <h>25</h>
     </coordinates>
@@ -19,12 +19,12 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>400</x>
-      <y>315</y>
+      <x>360</x>
+      <y>380</y>
       <w>165</w>
       <h>55</h>
     </coordinates>
-    <panel_attributes>default::ReplaceableTree
+    <panel_attributes>default::ReplaceableTree&lt;T&gt;
 --
 +ReplaceableTree(node: INode)
 +void replace(String position, String subTree)
@@ -37,13 +37,12 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>305</x>
-      <y>290</y>
+      <x>245</x>
+      <y>400</y>
       <w>85</w>
       <h>45</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;abstract&gt;&gt;
-tree.string::SortedTree
+    <panel_attributes>default::SortedTree&lt;T&gt;
 --
 #order: String
 --
@@ -55,10 +54,10 @@ tree.string::SortedTree
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>325</x>
-      <y>445</y>
-      <w>115</w>
-      <h>25</h>
+      <x>265</x>
+      <y>515</y>
+      <w>140</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>tree.string::InorderTree
 --
@@ -70,78 +69,77 @@ tree.string::SortedTree
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>405</x>
-      <y>405</y>
-      <w>120</w>
+      <x>315</x>
+      <y>480</y>
+      <w>155</w>
       <h>25</h>
     </coordinates>
-    <panel_attributes>tree.string::PostorderTree
+    <panel_attributes>default::PostorderTree&lt;T&gt;
 --
-+postorderTraverse(n: INode): void
-
++iterator(): TreeIter&lt;T&gt;
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>405</x>
-      <y>155</y>
-      <w>194</w>
-      <h>169</h>
+      <x>365</x>
+      <y>265</y>
+      <w>49</w>
+      <h>124</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>185;15;15;160</additional_attributes>
+    <additional_attributes>40;15;15;115</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>330</x>
-      <y>135</y>
-      <w>259</w>
-      <h>164</h>
+      <x>270</x>
+      <y>265</y>
+      <w>134</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>250;15;15;155</additional_attributes>
+    <additional_attributes>125;15;15;135</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>245</x>
-      <y>320</y>
-      <w>69</w>
-      <h>94</h>
+      <x>170</x>
+      <y>430</y>
+      <w>84</w>
+      <h>69</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>60;15;15;85</additional_attributes>
+    <additional_attributes>75;15;15;60</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>315</x>
-      <y>320</y>
+      <x>255</x>
+      <y>430</y>
       <w>39</w>
-      <h>134</h>
+      <h>94</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>15;15;30;125</additional_attributes>
+    <additional_attributes>15;15;30;85</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>335</x>
-      <y>320</y>
-      <w>79</w>
-      <h>94</h>
+      <x>275</x>
+      <y>430</y>
+      <w>49</w>
+      <h>59</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>15;15;70;85</additional_attributes>
+    <additional_attributes>15;15;40;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>450</x>
-      <y>25</y>
+      <x>245</x>
+      <y>35</y>
       <w>100</w>
       <h>80</h>
     </coordinates>
@@ -161,19 +159,19 @@ tree.string::SortedTree
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>405</x>
-      <y>65</y>
-      <w>54</w>
-      <h>24</h>
+      <x>190</x>
+      <y>45</y>
+      <w>64</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>15;15;45;15</additional_attributes>
+    <additional_attributes>15;15;55;45</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>310</x>
-      <y>20</y>
+      <x>95</x>
+      <y>0</y>
       <w>110</w>
       <h>95</h>
     </coordinates>
@@ -194,8 +192,8 @@ node::INode
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>615</x>
-      <y>450</y>
+      <x>430</x>
+      <y>580</y>
       <w>115</w>
       <h>65</h>
     </coordinates>
@@ -213,8 +211,8 @@ node::INode
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>595</x>
-      <y>335</y>
+      <x>620</x>
+      <y>435</y>
       <w>115</w>
       <h>65</h>
     </coordinates>
@@ -232,30 +230,30 @@ node::INode
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>550</x>
-      <y>335</y>
-      <w>54</w>
-      <h>49</h>
+      <x>510</x>
+      <y>400</y>
+      <w>119</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>45;40;15;15</additional_attributes>
+    <additional_attributes>110;75;15;15</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>640</x>
-      <y>385</y>
-      <w>44</w>
-      <h>74</h>
+      <x>475</x>
+      <y>485</y>
+      <w>214</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>15;15;35;65</additional_attributes>
+    <additional_attributes>205;15;15;95</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>515</x>
-      <y>260</y>
+      <x>525</x>
+      <y>315</y>
       <w>190</w>
       <h>30</h>
     </coordinates>
@@ -268,40 +266,39 @@ node::INode
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>550</x>
-      <y>275</y>
-      <w>84</w>
-      <h>69</h>
+      <x>510</x>
+      <y>330</y>
+      <w>134</w>
+      <h>79</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>75;15;15;60</additional_attributes>
+    <additional_attributes>125;15;15;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>635</x>
-      <y>275</y>
-      <w>39</w>
-      <h>69</h>
+      <x>645</x>
+      <y>330</y>
+      <w>54</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>15;15;30;60</additional_attributes>
+    <additional_attributes>15;15;45;105</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>580</x>
-      <y>90</y>
+      <x>395</x>
+      <y>220</y>
       <w>100</w>
-      <h>80</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;abstract&gt;&gt;
-default::Tree
+    <panel_attributes>default::Tree&lt;T&gt;
 --
 -root: INode
 --
-+contains(): TreeIter&lt;&gt;
-+iterator(): TreeIter&lt;&gt;
++contains(): TreeIter&lt;T&gt;
++iterator(): TreeIter&lt;T&gt;
 +search(): Iter&lt;Boolean&gt;
 +add()
 </panel_attributes>
@@ -310,19 +307,19 @@ default::Tree
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>535</x>
-      <y>45</y>
-      <w>54</w>
-      <h>84</h>
+      <x>330</x>
+      <y>60</y>
+      <w>114</w>
+      <h>169</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>15;15;45;75</additional_attributes>
+    <additional_attributes>15;15;105;160</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>240</x>
-      <y>150</y>
+      <x>55</x>
+      <y>280</y>
       <w>130</w>
       <h>50</h>
     </coordinates>
@@ -340,8 +337,8 @@ default::Person
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>185</x>
-      <y>230</y>
+      <x>0</x>
+      <y>360</y>
       <w>85</w>
       <h>40</h>
     </coordinates>
@@ -357,8 +354,8 @@ default::Person
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>285</x>
-      <y>230</y>
+      <x>100</x>
+      <y>360</y>
       <w>95</w>
       <h>40</h>
     </coordinates>
@@ -374,8 +371,8 @@ default::Person
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>220</x>
-      <y>185</y>
+      <x>35</x>
+      <y>315</y>
       <w>54</w>
       <h>54</h>
     </coordinates>
@@ -385,8 +382,8 @@ default::Person
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>275</x>
-      <y>185</y>
+      <x>90</x>
+      <y>315</y>
       <w>69</w>
       <h>54</h>
     </coordinates>
@@ -396,8 +393,8 @@ default::Person
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>170</x>
-      <y>40</y>
+      <x>120</x>
+      <y>125</y>
       <w>95</w>
       <h>60</h>
     </coordinates>
@@ -415,8 +412,8 @@ default::Iter&lt;T&gt;
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>120</x>
-      <y>155</y>
+      <x>215</x>
+      <y>210</y>
       <w>90</w>
       <h>35</h>
     </coordinates>
@@ -432,11 +429,22 @@ default::TreeIter&lt;T&gt;
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>150</x>
-      <y>85</y>
-      <w>74</w>
-      <h>79</h>
+      <y>170</y>
+      <w>119</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>65;15;15;70</additional_attributes>
+    <additional_attributes>15;15;110;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>290</x>
+      <y>210</y>
+      <w>114</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>15;15;105;40</additional_attributes>
   </element>
 </diagram>
