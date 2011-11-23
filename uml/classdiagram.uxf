@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>5</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>200</x>
+      <y>405</y>
+      <w>125</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>tree.string::PreorderTree
+--
++preorderTraverse(n: INode): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>315</y>
+      <w>165</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>default::ReplaceableTree
+--
++ReplaceableTree(node: INode)
++void replace(String position, String subTree)
++String search(String Node)
++void add(String node)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>305</x>
+      <y>290</y>
+      <w>85</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+tree.string::SortedTree
+--
+#order: String
+--
++iterator()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>325</x>
+      <y>445</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>tree.string::InorderTree
+--
++inorderTraverse(n: INode): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>405</x>
+      <y>405</y>
+      <w>120</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>tree.string::PostorderTree
+--
++postorderTraverse(n: INode): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>405</x>
+      <y>155</y>
+      <w>194</w>
+      <h>169</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>185;15;15;160</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>330</x>
+      <y>135</y>
+      <w>259</w>
+      <h>164</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>250;15;15;155</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>245</x>
+      <y>320</y>
+      <w>69</w>
+      <h>94</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60;15;15;85</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>315</x>
+      <y>320</y>
+      <w>39</w>
+      <h>134</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>15;15;30;125</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>335</x>
+      <y>320</y>
+      <w>79</w>
+      <h>94</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>15;15;70;85</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>450</x>
+      <y>25</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>node::Node
+--
+-parent: INode
+-left: INode
+-right: INode
+-label: Object
+--
++Node()
++Node(o: Object)
++Node(o: Object, p: INode)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>405</x>
+      <y>65</y>
+      <w>54</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>15;15;45;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>310</x>
+      <y>20</y>
+      <w>110</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+node::INode
+--
++getLabel(): Object
++setLabel(o: Object): void
++getParentNode(): INode
++setParentNode(n: INode): void
++getLeftNode(): INode
++setLeftNode(n: INode): void
++getRightNode(): INode
++setRightNode(n: INode): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>615</x>
+      <y>450</y>
+      <w>115</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>stack::StackNode
+--
+-item: INode
+-next: StackNode
+--
++getItem(): INode
++setItem(item: INode)
++getNext(): StackNode
++setNext(next: StackNode)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>595</x>
+      <y>335</y>
+      <w>115</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>stack::Stack
+--
+-size: int
+-first: StackNode
+--
++isEmpty(): boolean
++size(): int
++push(item: INode): void
++pop(): INode</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>550</x>
+      <y>335</y>
+      <w>54</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>45;40;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>385</y>
+      <w>44</w>
+      <h>74</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>15;15;35;65</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>515</x>
+      <y>260</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>default::Replaceable
+--
++void replace(position: Sring, subTree: String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>550</x>
+      <y>275</y>
+      <w>84</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>75;15;15;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>635</x>
+      <y>275</y>
+      <w>39</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>15;15;30;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>580</x>
+      <y>90</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+default::Tree
+--
+-root: INode
+--
++contains(): TreeIter&lt;&gt;
++iterator(): TreeIter&lt;&gt;
++search(): Iter&lt;Boolean&gt;
++add()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>535</x>
+      <y>45</y>
+      <w>54</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>15;15;45;75</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>150</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+default::Person
+--
+#name: String
+--
++compareTo(p1: Person): boolean
++euqlas(): boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>185</x>
+      <y>230</y>
+      <w>85</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>default::Student
+--
+-matrNr: int
+--
++Student(name: String)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>285</x>
+      <y>230</y>
+      <w>95</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>default::Professor
+--
+-institut: String
+--
++Professor(name: String)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>220</x>
+      <y>185</y>
+      <w>54</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>45;15;15;45</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>275</x>
+      <y>185</y>
+      <w>69</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>15;15;60;45</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>170</x>
+      <y>40</y>
+      <w>95</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+default::Iter&lt;T&gt;
+--
++next(): Iter&lt;T&gt;
++previous(): Iter&lt;T&gt;
++hasNext(): boolean
++hasPrevious(): boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>120</x>
+      <y>155</y>
+      <w>90</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+default::TreeIter&lt;T&gt;
+--
++down(): TreeIter&lt;T&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>85</y>
+      <w>74</w>
+      <h>79</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>65;15;15;70</additional_attributes>
+  </element>
+</diagram>

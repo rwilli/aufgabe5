@@ -5,8 +5,27 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		/*
+		 * Testcases
+		 * 
+		 * 
+		 * ReplaceableTree<String>
+		 * 
+		 * InorderTree<Integer>
+		 * 
+		 * PreorderTree<Student>
+		 * 
+		 * PostorderTree<Professor>
+		 * 
+		 * 
+		 * 
+		 * ReplaceableTree<Person>
+		 * 
+		 * add Student + Professor
+		 * 
+		 * ersetzen durch PreorderTree<Student> und PostorderTree<Professor>
+		 * 
+		 */
 	}
 
 }
