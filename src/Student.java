@@ -1,13 +1,18 @@
-
+/**
+ * Student class extends Person
+ * 
+ * @author Gruppe222
+ */
 public class Student extends Person {
+	
 	private int matrNr;
 	
 	public Student(String name) {
-		this.name = name;
+		super(name);
 	}
 	
 	public Student(String name, int nr) {
-		this.name = name;
+		super(name);
 		this.matrNr = nr;
 	}
 

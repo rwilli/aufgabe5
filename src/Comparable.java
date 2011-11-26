@@ -19,6 +19,6 @@ public interface Comparable<T> {
 	 * 
 	 * @return -1, 0, or 1
 	 */
-	int compareTo(T object);
+	int compareTo(T that);
 	
 }

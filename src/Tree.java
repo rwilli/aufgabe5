@@ -6,6 +6,8 @@
  */
 public abstract class Tree<T extends Comparable<T>> {
 	// root node
+	
+	// TODO: Variablen private machen
 	protected INode root;
 
 	// tree search path

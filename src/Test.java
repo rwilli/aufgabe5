@@ -5,6 +5,15 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		
+		Person p = new Student("Franz");
+		Person p1 = new Person("Franz");
+		
+		System.out.println(p.name.compareTo(p1.name));
+		
+		
+		
 		/*
 		 * Testcases
 		 * 

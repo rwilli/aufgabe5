@@ -3,11 +3,11 @@ public class Professor extends Person {
 	private int institut;
 	
 	public Professor(String name) {
-		this.name = name;
+		super(name);
 	}
 	
 	public Professor(String name, int institut) {
-		this.name = name;
+		super(name);
 		this.institut = institut;
 	}
 
