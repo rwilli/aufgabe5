@@ -8,7 +8,7 @@ public class Test {
 		
 		
 		Person p = new Student("Franz");
-		Person p1 = new Person("Franz");
+		Person p1 = new Professor("Franz");
 		
 		System.out.println(p.name.compareTo(p1.name));
 		

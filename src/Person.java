@@ -4,7 +4,7 @@
  * @author Gruppe222
  *
  */
-public class Person implements Comparable<String> {
+public abstract class Person implements Comparable<String> {
 	
 	protected String name;
 	
