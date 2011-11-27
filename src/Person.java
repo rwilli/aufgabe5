@@ -4,7 +4,6 @@
  * @author Gruppe222
  *
  */
-//TODO Comparable<Person> ???
 public abstract class Person implements Comparable<Person> {
 	
 	protected String name;
@@ -13,18 +12,18 @@ public abstract class Person implements Comparable<Person> {
 		this.name = name;
 	}
 	
-	public int compareTo(String that) {
+	public int compareTo(Person that) {
 		
-		for(int i = 0; i < this.name.length() && i < that.length(); i++){
+		for(int i = 0; i < this.name.length() && i < that.name.length(); i++){
 			
-			if (this.name.charAt(i) < that.charAt(i)) return -1;
+			if (this.name.charAt(i) < that.name.charAt(i)) return -1;
 	
-			if (this.name.charAt(i) > that.charAt(i) ) return 1;
+			if (this.name.charAt(i) > that.name.charAt(i) ) return 1;
 					
 		}
 		
-		if(this.name.length() < that.length()) return -1;
-		if(this.name.length() > that.length()) return 1;		
+		if(this.name.length() < that.name.length()) return -1;
+		if(this.name.length() > that.name.length()) return 1;		
 		
 		return 0;	
 	}
