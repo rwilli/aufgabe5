@@ -10,9 +10,8 @@ public class InorderTree<T extends Comparable<? super T>> extends SortedTree<T> 
 	@Override
 	public TreeIter<T> iterator() {
 		traverse();
-		TreeIter<T> iter = new TreeIterImp();
 		
-		return iter;
+		return new TreeIterImp();
 	}
 	
 	private void traverse() {

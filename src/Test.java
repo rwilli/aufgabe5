@@ -72,6 +72,14 @@ public class Test {
 			System.out.print(it3.next().toString() + " ");
 		}
 		
+		it3 = tree3.iterator();
+		System.out.println();
+		System.out.println(it3.next());
+		System.out.println(it3.next());
+		System.out.println(it3.next());
+		System.out.println(it3.previous());
+		System.out.println(it3.previous());
+		
 		/*it3 = tree3.contains(new Student("Otto Haber", 7));
 		
 		while (it3.hasNext()) {

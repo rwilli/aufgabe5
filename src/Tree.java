@@ -53,16 +53,60 @@ public abstract class Tree<T> {
 	}
 	
 	protected class TreeIterImp implements TreeIter<T> {
-		private Iter<Node> test = null;
+		private Iter<Node> iter = null;
 		protected Node current = null;
 		
 		public TreeIterImp() {
-			test = child.iter();
+			this.iter = child.iter();
 		}
 		
 		@Override
 		public T next() {
-			Node n = test.next();
+			Node n = this.iter.next();
+			
+			current = n;
+			
+			return current.element;
+		}
+
+		@Override
+		public T previous() {
+			Node n = this.iter.previous();
+			
+			current = n;
+			
+			return current.element;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return this.iter.hasNext();
+		}
+
+		@Override
+		public boolean hasPrevious() {
+			return this.iter.hasPrevious();
+		}
+
+		@Override
+		public TreeIter<T> down() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+	
+	protected class SearchItImp implements Iter<T> {
+		private Iter<Node> iter = null;
+		protected Node current = null;
+		
+		public SearchItImp() {
+			this.iter = child.iter();
+		}
+		
+		@Override
+		public T next() {
+			Node n = this.iter.next();
 			
 			current = n;
 			
@@ -77,19 +121,12 @@ public abstract class Tree<T> {
 
 		@Override
 		public boolean hasNext() {
-			return this.test.hasNext();
+			return this.iter.hasNext();
 		}
 
 		@Override
 		public boolean hasPrevious() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public TreeIter<T> down() {
-			// TODO Auto-generated method stub
-			return null;
+			return this.iter.hasPrevious();
 		}
 		
 	}

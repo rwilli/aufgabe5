@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Gruppe222
+ *
+ */
 public class List<T> {
 	protected ListNode head = null;
 	protected ListNode tail = null;
@@ -6,8 +10,11 @@ public class List<T> {
 	public void add(T element) {
 		if (head == null)
 			tail = head = new ListNode(element);
-		else
-			tail = tail.next = new ListNode(element);
+		else {
+			// TODO previous is not working
+			tail.previous = tail = tail.next = new ListNode(element);
+			
+		}
 	}
 	
 	public Iter<T> iter() {
@@ -17,6 +24,7 @@ public class List<T> {
 	protected class ListNode {
 		private T data;
 		private ListNode next = null;
+		private ListNode previous = null;
 		
 		ListNode(T data) {
 			this.data = data;
@@ -40,8 +48,13 @@ public class List<T> {
 
 		@Override
 		public T previous() {
-			// TODO Auto-generated method stub
-			return null;
+			if (n == null)
+				return null;
+			
+			n = n.previous;
+			T data = n.data;
+			
+			return data;
 		}
 
 		@Override
@@ -51,25 +64,8 @@ public class List<T> {
 
 		@Override
 		public boolean hasPrevious() {
-			// TODO Auto-generated method stub
-			return false;
+			return n.previous != null;
 		}
-
-		/*public T next() {
-			if (p == null)
-				return null;
-			
-			T data = p.data;
-			p = p.next;
-			
-			return data;
-		}
-
-		public boolean hasNext() {
-			return p != null;
-		}*/
-		
-		
 
 	}
 }

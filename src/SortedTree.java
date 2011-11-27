@@ -59,7 +59,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		// soll ein leerer Iterator zurŸckgegeben werden
 		
 		//return currentNode == null ? "Knoten wurde nicht gefunden" : "OK";
-		return null;
+		return new SearchItImp();
 	}
 	
 	@Override
@@ -67,32 +67,5 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	protected class SearchItImp implements Iter<T> {
 
-		@Override
-		public T next() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public T previous() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean hasPrevious() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-		
-	}
 }

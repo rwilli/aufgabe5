@@ -10,11 +10,8 @@ public class PreorderTree<T extends Comparable<? super T>> extends SortedTree<T>
 	@Override
 	public TreeIter<T> iterator() {
 		traverse();
-		TreeIter<T> iter = new TreeIterImp();
 		
-		//System.out.println(order);
-		// TODO Auto-generated method stub
-		return iter;
+		return new TreeIterImp();
 	}
 	
 	private void traverse() {
