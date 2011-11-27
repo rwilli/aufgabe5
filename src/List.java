@@ -1,42 +1,13 @@
 
 public class List<T> {
-	private ListNode head = null;
+	protected ListNode head = null;
+	protected ListNode tail = null;
 	
-	public void add(T element, ListIter iter) {
-		if (iter != null && iter.current != null)
-			iter.current.next = new ListNode(element, iter.current.next);
-	}
-	
-	public int size() {
-		return this.size;
-	}
-	
-	public boolean remove(T element) {
-		ListNode n = this.head;
-		
-		if (n.data.equals(element)) {
-			this.head = n.next;
-			n = null;
-			
-			this.size--;
-			
-			return true;
-		}
-		
-		ListNode n2 = n;
-		n = n.next;
-		
-		while (n != null) {
-			if (n.data.equals(element)) {
-				n2.next = n.next;
-				n = null;
-				this.size--;
-				
-				return true;
-			}
-		}
-		
-		return false;
+	public void add(T element) {
+		if (head == null)
+			tail = head = new ListNode(element);
+		else
+			tail = tail.next = new ListNode(element);
 	}
 	
 	protected class ListNode {
@@ -47,27 +18,23 @@ public class List<T> {
 			this.data = data;
 		}
 		
-		ListNode(T data, ListNode n) {
-			this.data = data;
-			this.next = n;
-		}
 	}
 	
 	protected class ListIter {
-		protected ListNode current;
+		protected ListNode p = head;
 
 		public T next() {
-			if (current == null)
+			if (p == null)
 				return null;
 			
-			T data = current.data;
-			//n = n.next;
+			T data = p.data;
+			p = p.next;
 			
 			return data;
 		}
 
 		public boolean hasNext() {
-			return current != null;
+			return p != null;
 		}
 
 	}
