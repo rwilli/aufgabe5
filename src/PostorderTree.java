@@ -9,8 +9,33 @@ public class PostorderTree<T extends Comparable<? super T>> extends SortedTree<T
 
 	@Override
 	public TreeIter<T> iterator() {
+		TreeIter<T> iter = new TreeIterImp();
+		
+		traverse();
+		//System.out.println(order);
 		// TODO Auto-generated method stub
-		return null;
+		return iter;
+	}
+	
+	private void traverse() {
+		if (this.root != null)
+			postorderTraverse(this.root);
+	}
+
+	/**
+	 * Preorder method
+	 * First root node then walk trough the left sub-tree
+	 * and then trough the right sub-tree
+	 * 
+	 * @param node root node
+	 */
+	private void postorderTraverse(Node node) {
+		if (node == null) 
+			return;
+
+		postorderTraverse(node.left);		// walk trough left sub-tree
+		postorderTraverse(node.right);	// walk trough right sub-tree
+		this.child.add(node);
 	}
 
 }

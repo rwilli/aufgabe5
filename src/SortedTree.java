@@ -11,7 +11,10 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 
 	@Override
 	public void add(T element) {
-		this.child.add(new Node(element));
+		if (this.root == null)
+			this.root = new Node(element);
+		else
+			this.root = insert(this.root, element);
 	}
 	
 	/**
@@ -21,28 +24,75 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 	 * @param element to be stored in the tree
 	 * @return new tree
 	 */
-	private Node insert(Node iterator, T element) {
-		if (iterator == null)
+	private Node insert(Node root, T element) {
+		if (root == null)
 			root = new Node(element);
 		// left side
 		else if (element.compareTo(root.element) < 0 ) {
 			root.left = insert(root.left, element);
-			//TODO root.left.parent = root;
+			root.left.parent = root;
 		// right side
 		} else if (element.compareTo(root.element) >= 0 ) {
 			root.right = insert(root.right, element);
-			//TODO root.right.parent = root;
+			root.right.parent = root;
 		}
 		
 		return root;
 	} 
 
-	@Override
+	@Override // node = String
 	public Iter<Boolean> search(T element) {
-		// TODO Auto-generated method stub
-		return super.search(element);
+		Node currentNode = this.root;
+		//currentPath = this.searchPath;
+		
+		while (currentNode != null && currentNode.element.compareTo(element) != 0) {  
+			if (element.compareTo(element) < 0) {
+				currentNode = currentNode.left;
+				//currentPath += "left ";
+			} else {
+				currentNode = currentNode.right;
+				//currentPath += "right ";
+			}
+		}
+		
+		//TODO entspricht der gefundene Knoten der Wurzel, so
+		// soll ein leerer Iterator zurŸckgegeben werden
+		
+		//return currentNode == null ? "Knoten wurde nicht gefunden" : "OK";
+		return null;
 	}
 	
-	public abstract TreeIter<T> iterator();
+	@Override
+	public TreeIter<T> contains(T element) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	protected class SearchItImp implements Iter<T> {
 
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public T previous() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public boolean hasPrevious() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+	}
 }

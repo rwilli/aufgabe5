@@ -10,14 +10,36 @@ public abstract class Tree<T> {
 	
 	public abstract TreeIter<T> contains(T element);
 	
-	public TreeIter<T> iterator() {
-		return null;
-	}
-	
 	public abstract Iter<Boolean> search(T element);
 	
 	public abstract void add(T element);
 	
+	public abstract TreeIter<T> iterator();
+		//TODO Baum in Liste konvertieren
+		// pro Baum-Level eine Liste erstellen
+		/*
+		 * List<List<Node> > ol = new ArrayList<List<Node>>();
+		build(root,0)
+		
+		void build (Node node,int level)
+		{ 
+		if(node==null)
+		return;
+		List<Node> il;
+		if(ol.size() < level){
+		il =  new ArrayList<Node>(); 
+		}else{
+		il= ol.get(level);
+		}
+		
+		il.add(node);
+		ol.put(level,il);
+		build(node.left, level+1);
+		build(node.right,level+1);
+		}
+
+		 */
+		
 	protected class Node {
 		protected T element;
 		protected Node left;
@@ -31,16 +53,20 @@ public abstract class Tree<T> {
 	}
 	
 	protected class TreeIterImp implements TreeIter<T> {
-		private Node current = null;
-		private List<Node> lstNodes = new List<Node>(); 
+		//private ListIter iter = new ListIter();
+		protected Node current = null;
+		
+		public TreeIterImp() {
+			//this.current = null;
+		}
 		
 		@Override
 		public T next() {
-			if (this.current == null)
-				return lstNodes.first(); //???
+			if (current == null)
+				return null;
 			
 			T element = this.current.element;
-			//this.current = this.current.next;
+			this.current = this.current.parent;
 			
 			return element;
 		}
@@ -66,35 +92,6 @@ public abstract class Tree<T> {
 		public TreeIter<T> down() {
 			// TODO Auto-generated method stub
 			return null;
-		}
-		
-		public TreeIter<T> iterator() {
-			//TODO Baum in Liste konvertieren
-			// pro Baum-Level eine Liste erstellen
-			/*
-			 * List<List<Node> > ol = new ArrayList<List<Node>>();
-build(root,0)
-
-void build (Node node,int level)
-{ 
- if(node==null)
-    return;
-  List<Node> il;
-  if(ol.size() < level){
-   il =  new ArrayList<Node>(); 
-  }else{
-  il= ol.get(level);
-  }
-
-il.add(node);
-ol.put(level,il);
- build(node.left, level+1);
- build(node.right,level+1);
-}
-
-			 */
-			
-			return new TreeIterImp();
 		}
 		
 	}

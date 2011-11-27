@@ -66,10 +66,22 @@ public class Test {
 		tree3.add(new Student("Kurt Bach", 4));
 		tree3.add(new Student("Anna Berg", 9));
 		
-		TreeIter<Student> it3 = tree3.contains(new Student("Otto Haber", 7));
+		TreeIter<Student> it3 = tree3.iterator();
+		it3.next();
+		while (it3.hasNext()) {
+			System.out.println(it3.next().toString());
+		}
+		
+		/*it3 = tree3.contains(new Student("Otto Haber", 7));
 		
 		while (it3.hasNext()) {
 			System.out.println(it3.next());
+		}
+		
+		Iter<Boolean> it4 = tree3.search(new Student("Kurt Bach", 4));
+		
+		while (it4.hasNext()) {
+			System.out.println(it4.next());
 		}
 		
 		PostorderTree<Professor> tree4 = new PostorderTree<Professor>();
