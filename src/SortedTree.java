@@ -11,10 +11,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 
 	@Override
 	public void add(T element) {
-		if (this.root == null)
-			this.root = new Node(element);
-		else
-			this.root = insert(this.root, element);
+		this.child.add(new Node(element));
 	}
 	
 	/**
@@ -24,8 +21,8 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 	 * @param element to be stored in the tree
 	 * @return new tree
 	 */
-	private Node insert(Node root, T element) {
-		if (root == null)
+	private Node insert(Node iterator, T element) {
+		if (iterator == null)
 			root = new Node(element);
 		// left side
 		else if (element.compareTo(root.element) < 0 ) {

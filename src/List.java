@@ -1,14 +1,10 @@
 
 public class List<T> {
 	private ListNode head = null;
-	private int size = 0;
 	
-	public void add(T element) {
-		ListNode old = this.head;
-		this.head = new ListNode(element);
-		this.head.next = old;
-		
-		this.size++;
+	public void add(T element, ListIter iter) {
+		if (iter != null && iter.current != null)
+			iter.current.next = new ListNode(element, iter.current.next);
 	}
 	
 	public int size() {
@@ -43,7 +39,6 @@ public class List<T> {
 		return false;
 	}
 	
-	
 	protected class ListNode {
 		private T data;
 		private ListNode next = null;
@@ -51,23 +46,28 @@ public class List<T> {
 		ListNode(T data) {
 			this.data = data;
 		}
+		
+		ListNode(T data, ListNode n) {
+			this.data = data;
+			this.next = n;
+		}
 	}
 	
 	protected class ListIter {
-		protected ListNode n = head;
+		protected ListNode current;
 
 		public T next() {
-			if (n == null)
+			if (current == null)
 				return null;
 			
-			T data = n.data;
-			n = n.next;
+			T data = current.data;
+			//n = n.next;
 			
 			return data;
 		}
 
 		public boolean hasNext() {
-			return n != null;
+			return current != null;
 		}
 
 	}

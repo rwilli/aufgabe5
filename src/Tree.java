@@ -5,6 +5,7 @@
  *
  */
 public abstract class Tree<T> {
+	protected List<Node> child = new List<Node>();
 	protected Node root;
 	
 	public TreeIter<T> contains(T element) {

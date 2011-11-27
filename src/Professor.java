@@ -19,10 +19,4 @@ public class Professor extends Person {
 		this.institut = institut;
 	}
 
-	@Override
-	public int compareTo(Person that) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

@@ -26,7 +26,7 @@ public class Test {
 		 * PostorderTree<Professor>
 		 * 
 		 */ 
-		ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
+		/*ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
 		tree1.add("Foul");
 		tree1.add("Zitrone");
 		tree1.add("Kugel");
@@ -34,6 +34,20 @@ public class Test {
 		tree1.add("hugo");
 		tree1.add("Ludwig");
 		tree1.add("Anna");
+		
+		TreeIter<String> it1 = tree1.contains("Bananae");
+		
+		while (it1.hasNext()) {
+			System.out.println(it1.next());
+		}
+		
+		tree1.contains("Kirsche");
+		
+		while (it1.hasNext()) {
+			System.out.println(it1.next());
+		}
+		
+		Iter<Boolean> i1 = tree1.search(("Ludwig"));*/
 		
 		
 		/*InorderTree<Integer> tree2 = new InorderTree<Integer>();
@@ -51,6 +65,12 @@ public class Test {
 		tree3.add(new Student("Otto Haber", 7));
 		tree3.add(new Student("Kurt Bach", 4));
 		tree3.add(new Student("Anna Berg", 9));
+		
+		TreeIter<Student> it3 = tree3.contains(new Student("Otto Haber", 7));
+		
+		while (it3.hasNext()) {
+			System.out.println(it3.next());
+		}
 		
 		PostorderTree<Professor> tree4 = new PostorderTree<Professor>();
 		tree4.add(new Professor("Florian Proll", "Informatik"));
