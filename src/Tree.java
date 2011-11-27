@@ -6,6 +6,7 @@
  */
 public abstract class Tree<T> {
 	protected List<Node> child = new List<Node>();
+	protected List<Boolean> b = new List<Boolean>();
 	protected Node root;
 	
 	public abstract TreeIter<T> contains(T element);
@@ -115,8 +116,11 @@ public abstract class Tree<T> {
 
 		@Override
 		public T previous() {
-			// TODO Auto-generated method stub
-			return null;
+			Node n = this.iter.previous();
+			
+			current = n;
+			
+			return current.element;
 		}
 
 		@Override

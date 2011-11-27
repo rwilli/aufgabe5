@@ -45,13 +45,18 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		Node currentNode = this.root;
 		//currentPath = this.searchPath;
 		
-		while (currentNode != null && currentNode.element.compareTo(element) != 0) {  
-			if (element.compareTo(element) < 0) {
-				currentNode = currentNode.left;
-				//currentPath += "left ";
-			} else {
-				currentNode = currentNode.right;
-				//currentPath += "right ";
+		if (element.compareTo(this.root.element) == 0) {
+			return null; //???
+		} else {
+			while (currentNode != null && currentNode.element.compareTo(element) != 0) {  
+				if (element.compareTo(element) < 0) {
+					currentNode = currentNode.left;
+					this.b.add(false);
+					//currentPath += "left ";
+				} else {
+					currentNode = currentNode.right;
+					this.b.add(true);
+				}
 			}
 		}
 		
@@ -64,7 +69,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 	
 	@Override
 	public TreeIter<T> contains(T element) {
-		// TODO Auto-generated method stub
+		search(element);
 		return null;
 	}
 

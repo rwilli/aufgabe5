@@ -87,7 +87,7 @@ public class Test {
 		System.out.println(it3.previous());
 		System.out.println(it3.previous());
 		
-		/*it3 = tree3.contains(new Student("Otto Haber", 7));
+		it3 = tree3.contains(new Student("Otto Haber", 7));
 		
 		while (it3.hasNext()) {
 			System.out.println(it3.next());
@@ -97,7 +97,8 @@ public class Test {
 		
 		while (it4.hasNext()) {
 			System.out.println(it4.next());
-		}*/
+		}
+		
 		System.out.println();
 		System.out.println("-----PostorderTree-----");
 		PostorderTree<Professor> tree4 = new PostorderTree<Professor>();
@@ -107,10 +108,11 @@ public class Test {
 		tree4.add(new Professor("Josef Haller", "Informatik"));
 		tree4.add(new Professor("Patrick Graber", "Chemie"));
 		
-		TreeIter<Professor> it4 = tree4.iterator();
-		while (it4.hasNext()) {
-			System.out.print(it4.next().toString() + " ");
+		TreeIter<Professor> it5 = tree4.iterator();
+		while (it5.hasNext()) {
+			System.out.print(it5.next().toString() + " ");
 		}
+		
 		System.out.println();
 		System.out.println("-----InorderTree-----");
 		InorderTree<Professor> tree5 = new InorderTree<Professor>();
@@ -120,9 +122,9 @@ public class Test {
 		tree5.add(new Professor("Josef Haller", "Informatik"));
 		tree5.add(new Professor("Patrick Graber", "Chemie"));
 		
-		TreeIter<Professor> it5 = tree5.iterator();
-		while (it5.hasNext()) {
-			System.out.print(it5.next().toString() + " ");
+		TreeIter<Professor> it6 = tree5.iterator();
+		while (it6.hasNext()) {
+			System.out.print(it6.next().toString() + " ");
 		}
 		
 		/*
