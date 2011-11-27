@@ -7,10 +7,10 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
-		Person p = new Student("Franz");
+		/*Person p = new Student("Franz");
 		Person p1 = new Professor("Franz");
 		
-		System.out.println(p.name.compareTo(p1.name));
+		System.out.println(p.name.compareTo(p1.name));*/
 		
 		
 		
@@ -58,6 +58,7 @@ public class Test {
 		tree2.add(new Integer(9));
 		tree2.add(new Integer(56));*/
 		
+		System.out.println("-----PreorderTree-----");
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
 		tree3.add(new Student("Hugo Test", 1));
 		tree3.add(new Student("Max Mustermann", 2));
@@ -67,9 +68,8 @@ public class Test {
 		tree3.add(new Student("Anna Berg", 9));
 		
 		TreeIter<Student> it3 = tree3.iterator();
-		System.out.println(it3.next());
 		while (it3.hasNext()) {
-			System.out.println(it3.next().toString());
+			System.out.print(it3.next().toString() + " ");
 		}
 		
 		/*it3 = tree3.contains(new Student("Otto Haber", 7));
@@ -82,8 +82,9 @@ public class Test {
 		
 		while (it4.hasNext()) {
 			System.out.println(it4.next());
-		}
-		
+		}*/
+		System.out.println();
+		System.out.println("-----PostorderTree-----");
 		PostorderTree<Professor> tree4 = new PostorderTree<Professor>();
 		tree4.add(new Professor("Florian Proll", "Informatik"));
 		tree4.add(new Professor("Anton Wall", "Elektronik"));
@@ -91,6 +92,23 @@ public class Test {
 		tree4.add(new Professor("Josef Haller", "Informatik"));
 		tree4.add(new Professor("Patrick Graber", "Chemie"));
 		
+		TreeIter<Professor> it4 = tree4.iterator();
+		while (it4.hasNext()) {
+			System.out.print(it4.next().toString() + " ");
+		}
+		System.out.println();
+		System.out.println("-----InorderTree-----");
+		InorderTree<Professor> tree5 = new InorderTree<Professor>();
+		tree5.add(new Professor("Florian Proll", "Informatik"));
+		tree5.add(new Professor("Anton Wall", "Elektronik"));
+		tree5.add(new Professor("Lukas Schreiber", "Physik"));
+		tree5.add(new Professor("Josef Haller", "Informatik"));
+		tree5.add(new Professor("Patrick Graber", "Chemie"));
+		
+		TreeIter<Professor> it5 = tree5.iterator();
+		while (it5.hasNext()) {
+			System.out.print(it5.next().toString() + " ");
+		}
 		
 		/*
 		 * Testcase 2
