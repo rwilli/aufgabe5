@@ -7,97 +7,45 @@
  * @author Gruppe222
  *
  */
-public abstract class SortedTree extends StringTree {
-	// current node
-	private INode currentNode;
+public abstract class SortedTree<T extends Comparable<T>> extends Tree<T> {
 
-	// current search path
-	private String currentPath;
+	@Override
+	public void add(T element) {
+		if (this.root == null)
+			this.root = new Node(element);
+		else
+			this.root = insert(this.root, element);
+	}
 	
-	// tree order output
-	protected String order = "";
-
-	/**
-	 * Traverse method
-	 * 
-	 * @return result of traverse method whitespace-seperated
-	 */
-	public abstract String traverse();
-
-	/*
-	 * (non-Javadoc)
-	 * @see StringTree#contains(java.lang.String)
-	 */
-	@Override
-	public boolean contains(String node) {
-		return search(node).equals("Knoten wurde nicht gefunden") ? false: true;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see StringTree#search(java.lang.String)
-	 */
-	@Override
-	public String search(String node) {
-		currentNode = this.root;
-		currentPath = this.searchPath;
-		
-		while (currentNode != null && !currentNode.getLabel().equals(node)) {  
-			if (node.compareTo((String) currentNode.getLabel()) < 0) {
-				currentNode = currentNode.getLeftNode();
-				currentPath += "left ";
-			} else {
-				currentNode = currentNode.getRightNode();
-				currentPath += "right ";
-			}
-		}
-		
-		return currentNode == null ? "Knoten wurde nicht gefunden" : currentPath;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see StringTree#add(java.lang.String)
-	 */
-	@Override
-	public void add(String node) {
-		if (this.root == null && node != null) {
-	        this.root = new Node(node);
-	        
-	        // depth >= 0.
-	        try {
-				this.root.setDepthNode(0);
-			} catch (IllegalValueException e) {
-				e.printStackTrace();
-			}
-	        this.root.setParentNode(null);
-	        
-		} else if (node != null) {
-	        this.root = insert(this.root, node);
-			setDepth(this.root);
-		}
-	}
-
 	/**
 	 * Insert new node with given label in the tree
 	 * 
 	 * @param root root node of the tree
-	 * @param label to be stored in the node
-	 * @return new root node with child nodes
+	 * @param element to be stored in the tree
+	 * @return new tree
 	 */
-	private INode insert(INode root, String label) {
+	private Node insert(Node root, T element) {
 		if (root == null)
-			root = new Node(label);
+			root = new Node(element);
 		// left side
-		else if (label.compareTo((String) root.getLabel()) < 0 ) {
-			root.setLeftNode(insert(root.getLeftNode(), label));
-			root.getLeftNode().setParentNode(new Node(root.getLabel()));
+		else if (element.compareTo(root.element) < 0 ) {
+			root.left = insert(root.left, element);
+			//TODO root.left.parent = root;
 		// right side
-		} else if (label.compareTo((String) root.getLabel()) >= 0 ) {
-	    	root.setRightNode(insert(root.getRightNode(), label));
-	    	root.getRightNode().setParentNode(new Node(root.getLabel()));
+		} else if (element.compareTo(root.element) >= 0 ) {
+			root.right = insert(root.right, element);
+			//TODO root.right.parent = root;
 		}
+		
 		return root;
 	} 
+
+	@Override
+	public Iter<Boolean> search(T element) {
+		// TODO Auto-generated method stub
+		return super.search(element);
+	}
+	
+	public abstract TreeIter<T> iterator();
 
 }

@@ -4,6 +4,7 @@
  * @author Gruppe222
  *
  */
+//TODO Comparable<Person> ???
 public abstract class Person implements Comparable<String> {
 	
 	protected String name;
