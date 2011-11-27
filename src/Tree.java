@@ -5,11 +5,10 @@
  *
  */
 public abstract class Tree<T> {
-	protected Node root = null;
+	protected Node root;
 	
-	
-	public boolean contains(T element) {
-		return false;
+	public TreeIter<T> contains(T element) {
+		return null;
 	}
 	
 	public TreeIter<T> iterator() {
@@ -34,26 +33,30 @@ public abstract class Tree<T> {
 		
 	}
 	
-	protected class TestTreeIter implements TreeIter<T> {
-		protected Node current = null;
+	protected class TreeIterImp implements TreeIter<T> {
+		private Node current = null;
+		private List<Node> lstNodes = new List<Node>(); 
 		
 		@Override
-		public Iter<T> next() {
+		public T next() {
 			if (this.current == null)
 				return null;
 			
-			return null;
+			T element = this.current.element;
+			//this.current = this.current.next;
+			
+			return element;
 		}
 
 		@Override
-		public Iter<T> previous() {
+		public T previous() {
 			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
 		public boolean hasNext() {
-			return n != null;
+			return this.current != null;
 		}
 
 		@Override

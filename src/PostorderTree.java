@@ -5,7 +5,7 @@
  * @author Gruppe222
  *
  */
-public class PostorderTree<T> extends SortedTree<T> {
+public class PostorderTree<T extends Comparable<? super T>> extends SortedTree<T> {
 
 	@Override
 	public TreeIter<T> iterator() {

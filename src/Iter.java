@@ -5,14 +5,14 @@ public interface Iter<T> {
 	 * 
 	 * @return
 	 */
-	public Iter<T> next();
+	public T next();
 	
 	/**
 	 * returns the previous element in the iteration
 	 * 
 	 * @return
 	 */
-	public Iter<T> previous();
+	public T previous();
 	
 	/**
 	 * returns true if the iteration has more elements

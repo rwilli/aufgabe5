@@ -159,8 +159,8 @@
     <coordinates>
       <x>133</x>
       <y>63</y>
-      <w>84</w>
-      <h>70</h>
+      <w>90</w>
+      <h>76</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>21;21;77;63</additional_attributes>
@@ -400,8 +400,8 @@ default::Person
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 default::Iter&lt;T&gt;
 --
-+next(): Iter&lt;T&gt;
-+previous(): Iter&lt;T&gt;
++next(): T
++previous(): T
 +hasNext(): boolean
 +hasPrevious(): boolean
 

@@ -24,4 +24,10 @@ public class Student extends Person {
 		this.matrNr = matrNr;
 	}
 
+	@Override
+	public int compareTo(Person that) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

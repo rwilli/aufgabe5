@@ -7,7 +7,7 @@
  * @author Gruppe222
  *
  */
-public abstract class SortedTree<T extends Comparable<T>> extends Tree<T> {
+public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T> {
 
 	@Override
 	public void add(T element) {

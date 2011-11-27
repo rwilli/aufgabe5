@@ -36,13 +36,13 @@ public class Test {
 		tree1.add("Anna");
 		
 		
-		InorderTree<Integer> tree2 = new InorderTree<Integer>();
+		/*InorderTree<Integer> tree2 = new InorderTree<Integer>();
 		tree2.add(new Integer(23));
 		tree2.add(new Integer(11));
 		tree2.add(new Integer(4));
 		tree2.add(new Integer(34));
 		tree2.add(new Integer(9));
-		tree2.add(new Integer(56));
+		tree2.add(new Integer(56));*/
 		
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
 		tree3.add(new Student("Hugo Test", 1));

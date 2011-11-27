@@ -5,7 +5,7 @@
  *
  */
 //TODO Comparable<Person> ???
-public abstract class Person implements Comparable<String> {
+public abstract class Person implements Comparable<Person> {
 	
 	protected String name;
 	
