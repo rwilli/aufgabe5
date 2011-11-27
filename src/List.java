@@ -10,6 +10,10 @@ public class List<T> {
 			tail = tail.next = new ListNode(element);
 	}
 	
+	public Iter<T> iter() {
+		return new ListIter();
+	}
+	
 	protected class ListNode {
 		private T data;
 		private ListNode next = null;
@@ -20,10 +24,38 @@ public class List<T> {
 		
 	}
 	
-	protected class ListIter {
-		protected ListNode p = head;
+	protected class ListIter implements Iter<T> {
+		protected ListNode n = head;
 
+		@Override
 		public T next() {
+			if (n == null)
+				return null;
+			
+			T data = n.data;
+			n = n.next;
+			
+			return data;
+		}
+
+		@Override
+		public T previous() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return n != null;
+		}
+
+		@Override
+		public boolean hasPrevious() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		/*public T next() {
 			if (p == null)
 				return null;
 			
@@ -35,7 +67,9 @@ public class List<T> {
 
 		public boolean hasNext() {
 			return p != null;
-		}
+		}*/
+		
+		
 
 	}
 }

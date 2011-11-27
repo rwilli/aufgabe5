@@ -67,7 +67,7 @@ public class Test {
 		tree3.add(new Student("Anna Berg", 9));
 		
 		TreeIter<Student> it3 = tree3.iterator();
-		it3.next();
+		System.out.println(it3.next());
 		while (it3.hasNext()) {
 			System.out.println(it3.next().toString());
 		}

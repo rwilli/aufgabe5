@@ -53,22 +53,20 @@ public abstract class Tree<T> {
 	}
 	
 	protected class TreeIterImp implements TreeIter<T> {
-		//private ListIter iter = new ListIter();
+		private Iter<Node> test = null;
 		protected Node current = null;
 		
 		public TreeIterImp() {
-			//this.current = null;
+			test = child.iter();
 		}
 		
 		@Override
 		public T next() {
-			if (current == null)
-				return null;
+			Node n = test.next();
 			
-			T element = this.current.element;
-			this.current = this.current.parent;
+			current = n;
 			
-			return element;
+			return current.element;
 		}
 
 		@Override
@@ -79,7 +77,7 @@ public abstract class Tree<T> {
 
 		@Override
 		public boolean hasNext() {
-			return this.current != null;
+			return this.test.hasNext();
 		}
 
 		@Override
