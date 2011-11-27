@@ -4,70 +4,32 @@
  *
  */
 public class List<T> {
-	/**
-	 * Attribut aktuelles Element.
-	 */
-	private ListNode current;
- 
-	/**
-	 * Attribut erstes Element der Liste
-	 */
-	private ListNode first;
- 
-	/**
-	 * Attribut letztes Element der Liste.
-	 */
-	private ListNode last;
-	/*protected ListNode head = null;
-	protected ListNode tail = null;
+	private ListNode head = null;
+	private ListNode tail = null;
+	private int size;
 	
 	public void add(T element) {
-		if (head == null)
-			tail = head = new ListNode(element);
-		else {
-			// TODO previous is not working
-			tail.previous = tail = tail.next = new ListNode(element);
+		if (head == null) {
+			head = new ListNode(element);
+			tail = new ListNode(element);
+			head.next = tail;
+			tail.previous = head;
+		} else {
+			ListNode tmp = new ListNode(element);
+			ListNode last = getLast();
+			last.next = tmp;
+			tmp.previous = last;
 		}
-	}*/
-	
-	public void add(T element)
-	{
-		ListNode newElement;
-			if (this.isEmpty())
-			{// Erstes und einziges Element in die Liste einfügen
-				newElement = new ListNode(element, null, null); //(pObject, null, null);
-				this.first = newElement;
-				this.last = newElement;
-				this.current = null;
-			}
-			else
-			{ // Die Liste ist nicht leer
-				newElement = new ListNode(element, null, this.first); //pObject, null, this.first);
-					this.first.previous = newElement;
-					this.first = newElement;
-					this.current = null;
-				
-				/*else
-				{	// Der Positionszeiger steht mitten in der Liste.
-					newElement = new ListNode(element, this.current, this.current.next);
-					if (this.current == this.last)
-					{ // Nachfolger existiert nicht - Schwanzzeiger korregieren
-						this.last = newElement;
-					}
-					else
-					{ // Nachfolger korregieren
-						this.current.next.previous = newElement; //.getNext().setPrevious(newElement);
-					}
-					// Vorgänger koregieren
-					this.current.next = newElement; //setNext(newElement);
-					// Aktuelles Element bleibt aktuelles Element
-				}*/
-			}
+		size++;
 	}
 	
-	public boolean isEmpty()
-	{
-		return this.first == null;
+	private ListNode getLast() {
+		ListNode tmp = this.head;
+		while (tmp.next != null) {
+			tmp = tmp.next;
+		}
+		
+		return tmp;
 	}
 	
 	public Iter<T> iter() {
@@ -79,16 +41,14 @@ public class List<T> {
 		private ListNode next = null;
 		private ListNode previous = null;
 		
-		ListNode(T data, ListNode prev, ListNode next) {
+		ListNode(T data) {
 			this.data = data;
-			this.next = next;
-			this.previous = prev;
 		}
 		
 	}
 	
 	protected class ListIter implements Iter<T> {
-		protected ListNode n = first;
+		protected ListNode n = head.next;
 
 		@Override
 		public T next() {
@@ -106,7 +66,7 @@ public class List<T> {
 			if (n == null)
 				return null;
 			
-			n = n.previous;
+			n = n.previous.previous;
 			T data = n.data;
 			
 			return data;

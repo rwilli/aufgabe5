@@ -58,6 +58,13 @@ public class Test {
 		tree2.add(new Integer(9));
 		tree2.add(new Integer(56));*/
 		
+		List<Integer> tt = new List<Integer>();
+		tt.add(new Integer(1));
+		tt.add(new Integer(2));
+		tt.add(new Integer(3));
+		
+		
+		
 		System.out.println("-----PreorderTree-----");
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
 		tree3.add(new Student("Hugo Test", 1));
