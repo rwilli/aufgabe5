@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * PreplaceableTree class extends StringTree and
  * implements replace method which can be use to
@@ -159,7 +161,46 @@ public class ReplaceableTree<T> extends Tree<T> {
 	}
 	
 	public void replace(Iter<Boolean> position, Tree<? extends T> tree) {
+	
+		if(this.root == null)
+			return;
+		// Kopieren?
+		Tree<? extends T> temp = tree
 		
+		Node n = this.root;
+		Node parent = null;
+		Boolean direction = null;
+		// there is min one position
+		while(position.hasNext()){
+			
+			// If Parent of the next Node is null, we can abort 
+			if(n == null)
+				return;
+			
+			parent = n;
+			direction = position.next();
+			if(!direction){
+				n = n.left;
+			}else{
+				n = n.right;
+			}
+		}
+		
+		// check a second time, if parent is null
+		if(parent == null)
+			return;
+		else{
+			
+			// depending of the last direction, set new tree left or right
+			if(!direction){
+				parent.left = temp.root;
+			}else{
+				parent.right = temp.root;
+			}
+			temp.root.parent = parent;
+
+		}
+	
 	}
 	
 	private void traverse() {
