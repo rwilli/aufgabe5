@@ -158,6 +158,10 @@ public class ReplaceableTree<T> extends Tree<T> {
 		return new TreeIterImp();
 	}
 	
+	public void replace(Iter<Boolean> position, Tree<? extends T> tree) {
+		
+	}
+	
 	private void traverse() {
 		if (this.root != null)
 			inorderTraverse(this.root);
