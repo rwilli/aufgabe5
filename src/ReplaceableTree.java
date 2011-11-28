@@ -101,8 +101,34 @@ public class ReplaceableTree<T> extends Tree<T> {
 
 	@Override
 	public Iter<Boolean> search(T element) {
-		// TODO Auto-generated method stub
-		return null;
+		Stack<Node> s = new Stack<Node>();
+		
+		if (this.root != null) 
+			s.push(this.root);	
+		else 
+			return null;
+		  while ( !s.isEmpty() ) {                  
+		        Node n = s.pop();               
+		        do {
+		        	if (n.element.equals(element)) {
+		        		Node p = n.parent;
+		        		while (p != null) {
+		        			if(p.left == n)
+		        				this.b.add(false);
+		        			else
+		        				this.b.add(true);
+		        			n = p; 
+		        			p = p.parent;
+		        		}
+		        		return new SearchIterImp();
+		        	}											
+		            if (n.right != null){       
+		            	s.push(n.right);       
+		            }
+		            n = n.left;               
+		        } while (n != null);           
+		    }
+		  return null;
 	}
 
 	@Override

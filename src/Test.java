@@ -52,10 +52,16 @@ public class Test {
 		
 		while (it1.hasNext()) {
 			System.out.println(it1.next());
+		}*/
+		
+		System.out.println();
+		System.out.println("--Tree Search");
+		Iter<Boolean> it2 = tree1.search("hugo");
+		
+		while (it2.hasNext()) {
+			System.out.print(it2.next());
 		}
 		
-		Iter<Boolean> i1 = tree1.search(("Ludwig"));
-		*/
 		
 		/*InorderTree<Integer> tree2 = new InorderTree<Integer>();
 		tree2.add(new Integer(23));
