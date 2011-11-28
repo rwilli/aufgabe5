@@ -4,7 +4,7 @@
  * @author Gruppe222
  *
  */
-public class Stack {
+public class Stack<T> {
 	// stack size
 	private int size;
 	
@@ -43,11 +43,11 @@ public class Stack {
 	 * 
 	 * @param item to store
 	 */
-	public void push(INode item) {
+	public void push(T item) {
 		StackNode oldfirst = this.first;
 		this.first = new StackNode();
-		this.first.setItem(item);
-		this.first.setNext(oldfirst);
+		this.first.item = item;
+		this.first.next= oldfirst;
 		this.size++;
 	}
 	
@@ -56,14 +56,31 @@ public class Stack {
 	 * 
 	 * @return node
 	 */
-	public INode pop() {
+	public T pop() {
 		if (this.isEmpty())
 			return null;
-		INode item = this.first.getItem();
-		this.first = this.first.getNext();
+		
+		T item = this.first.item;
+		this.first = this.first.next;
 		this.size--;
 		
 		return item;
+	}
+	
+	protected class StackNode {
+		// item to store
+		protected T item;
+		
+		// next stack element
+		protected StackNode next;
+		
+		/**
+		 * default constructor
+		 */
+		public StackNode() {
+			
+		}
+		
 	}
 
 }

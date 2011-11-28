@@ -40,12 +40,13 @@ public abstract class Tree<T> {
 		}
 
 		 */
-		
+	
 	protected class Node {
 		protected T element;
 		protected Node left;
 		protected Node right;
 		protected Node parent;
+		protected int depth;
 		
 		Node(T element) {
 			this.element = element;

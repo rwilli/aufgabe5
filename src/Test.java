@@ -26,7 +26,8 @@ public class Test {
 		 * PostorderTree<Professor>
 		 * 
 		 */ 
-		/*ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
+		System.out.println("----------ReplaceableTree----------");
+		ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
 		tree1.add("Foul");
 		tree1.add("Zitrone");
 		tree1.add("Kugel");
@@ -35,7 +36,13 @@ public class Test {
 		tree1.add("Ludwig");
 		tree1.add("Anna");
 		
-		TreeIter<String> it1 = tree1.contains("Bananae");
+		System.out.println("--Tree Ausgabe");
+		TreeIter<String> it1 = tree1.iterator();
+		while (it1.hasNext()) {
+			System.out.print(it1.next().toString() + " ");
+		}
+		
+		/*it1 = tree1.contains("Bananae");
 		
 		while (it1.hasNext()) {
 			System.out.println(it1.next());
@@ -47,8 +54,8 @@ public class Test {
 			System.out.println(it1.next());
 		}
 		
-		Iter<Boolean> i1 = tree1.search(("Ludwig"));*/
-		
+		Iter<Boolean> i1 = tree1.search(("Ludwig"));
+		*/
 		
 		/*InorderTree<Integer> tree2 = new InorderTree<Integer>();
 		tree2.add(new Integer(23));
@@ -57,18 +64,7 @@ public class Test {
 		tree2.add(new Integer(34));
 		tree2.add(new Integer(9));
 		tree2.add(new Integer(56));*/
-		
-		List<Boolean> tt = new List<Boolean>();
-		tt.add(true);
-		tt.add(false);
-		tt.add(false);
-		
-		Iter<Boolean> it = tt.iter();
-		
-		while (it.hasNext()) {
-			System.out.println(it.next());
-		}
-		
+		System.out.println();
 		System.out.println("-----PreorderTree-----");
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
 		tree3.add(new Student("Hugo Test", 1));
