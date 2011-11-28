@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Test {
 
@@ -59,23 +61,50 @@ public class Test {
 			System.out.print(it2.next());
 		}
 		
+		System.out.println("----------InorderTree----------");
 		
-		/*InorderTree<Integer> tree2 = new InorderTree<Integer>();
+		InorderTree<Integer> tree2 = new InorderTree<Integer>();
 		tree2.add(new Integer(23));
 		tree2.add(new Integer(11));
 		tree2.add(new Integer(4));
 		tree2.add(new Integer(34));
 		tree2.add(new Integer(9));
-		tree2.add(new Integer(56));*/
+		tree2.add(new Integer(56));
+		
+		System.out.println("--Tree Ausgabe");
+		
+		TreeIter<Integer> it22 = tree2.iterator();
+		while (it22.hasNext()) {
+			System.out.print(it22.next());
+		}
+		
+		System.out.println();
+		/*System.out.println("--Tree contains");
+		
+		it1 = tree1.contains("Zitrone");
+		while (it1.hasNext()) {
+			System.out.print(it1.next());
+		}
+	
+		System.out.println();
+		System.out.println("--Tree Search");
+		Iter<Boolean> it2 = tree1.search("hugo");
+		
+		while (it2.hasNext()) {
+			System.out.print(it2.next());
+		}*/
+		
+		PreorderTree<String> tree99 = new PreorderTree<String>();
+		
 		System.out.println();
 		System.out.println("-----PreorderTree-----");
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
-		tree3.add(new Student("Hugo Test", 1));
-		tree3.add(new Student("Max Mustermann", 2));
-		tree3.add(new Student("Fritz Fritzmann", 5));
-		tree3.add(new Student("Otto Haber", 7));
-		tree3.add(new Student("Kurt Bach", 4));
-		tree3.add(new Student("Anna Berg", 9));
+		tree3.add(new Student("H", 1));
+		tree3.add(new Student("M", 2));
+		tree3.add(new Student("F", 5));
+		tree3.add(new Student("O", 7));
+		tree3.add(new Student("K", 4));
+		tree3.add(new Student("A", 9));
 		
 		System.out.println("--Tree Ausgabe");
 		TreeIter<Student> it3 = tree3.iterator();
