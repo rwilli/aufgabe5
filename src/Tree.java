@@ -135,4 +135,32 @@ public abstract class Tree<T> {
 		}
 		
 	}
+	
+	// TODO: added EmptyIter, not sure if correct
+	protected class EmptyIterImp implements Iter<Boolean> {
+		
+		public EmptyIterImp() {
+		}
+		
+		@Override
+		public Boolean next() {
+			return null;
+		}
+
+		@Override
+		public Boolean previous() {
+			return null;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return false;
+		}
+
+		@Override
+		public boolean hasPrevious() {
+			return false;
+		}
+		
+	}
 }
