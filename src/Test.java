@@ -8,12 +8,12 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		
-		
-		/*Person p = new Student("Franz");
+		/*
+		Person p = new Student("Franz");
 		Person p1 = new Professor("Franz");
 		
-		System.out.println(p.name.compareTo(p1.name));*/
-		
+		System.out.println(p.name.compareTo(p1.name));
+		*/
 		
 		
 		/*

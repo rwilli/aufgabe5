@@ -83,4 +83,8 @@ public class List<T> {
 		}
 
 	}
+	
+	public int size() {
+		return this.size;
+	}
 }

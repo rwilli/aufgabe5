@@ -45,9 +45,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		Node currentNode = this.root;
 		
 		if (element.compareTo(this.root.element) == 0) {
-			//TODO entspricht der gefundene Knoten der Wurzel, so
-			// soll ein leerer Iterator zurŸckgegeben werden
-			return null;
+			return new EmptyIterImp();
 		} else {
 			while (currentNode != null) {  
 				if (element.compareTo(currentNode.element) < 0) {
