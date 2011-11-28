@@ -67,17 +67,34 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 	@Override
 	public TreeIter<T> contains(T element) {
 		Iter<Boolean> iter = search(element);
+		Node n;
 		
-		while (iter.hasNext()) {
-			// left sub-tree
-			if (iter.next() == false)
-				this.child.add(root.left);
-			// right sub-tree
-			else
-				this.child.add(root.right);
-		}
+		if (iter != null) {
+			n = this.root;
+			
+			while (iter.hasNext()) {
+				// left sub-tree
+				if (iter.next() == false)
+					n = n.left;
+				// right sub-tree
+				else
+					n = n.right;
+			}
+		} else
+			return null;
+		//TODO ?? implement sub-type related??
+		addNodes(n);
 		
 		return new TreeIterImp();
+	}
+	
+	private void addNodes(Node node) {
+		if (node == null) 
+			return;
+
+		addNodes(node.left);	// walk trough left sub-tree
+		this.child.add(node);
+		addNodes(node.right);	// walk trough right sub-tree
 	}
 
 }

@@ -85,10 +85,10 @@ public class Test {
 		}
 		System.out.println();
 		System.out.println("--Tree contains");
-		it3 = tree3.contains(new Student("Otto Haber", 7));
+		it3 = tree3.contains(new Student("Max Mustermann", 2));
 		
 		while (it3.hasNext()) {
-			System.out.print(it3.next());
+			System.out.print(it3.next() + " ");
 		}
 		
 		System.out.println();
