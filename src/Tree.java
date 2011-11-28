@@ -97,30 +97,30 @@ public abstract class Tree<T> {
 		
 	}
 	
-	protected class SearchItImp implements Iter<T> {
-		private Iter<Node> iter = null;
-		protected Node current = null;
+	protected class SearchIterImp implements Iter<Boolean> {
+		private Iter<Boolean> iter = null;
+		protected Boolean current = null;
 		
-		public SearchItImp() {
-			this.iter = child.iter();
+		public SearchIterImp() {
+			this.iter = b.iter();
 		}
 		
 		@Override
-		public T next() {
-			Node n = this.iter.next();
+		public Boolean next() {
+			Boolean n = this.iter.next();
 			
 			current = n;
 			
-			return current.element;
+			return current;
 		}
 
 		@Override
-		public T previous() {
-			Node n = this.iter.previous();
+		public Boolean previous() {
+			Boolean n = this.iter.previous();
 			
 			current = n;
 			
-			return current.element;
+			return current;
 		}
 
 		@Override

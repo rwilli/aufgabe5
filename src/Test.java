@@ -58,12 +58,16 @@ public class Test {
 		tree2.add(new Integer(9));
 		tree2.add(new Integer(56));*/
 		
-		List<Integer> tt = new List<Integer>();
-		tt.add(new Integer(1));
-		tt.add(new Integer(2));
-		tt.add(new Integer(3));
+		List<Boolean> tt = new List<Boolean>();
+		tt.add(true);
+		tt.add(false);
+		tt.add(false);
 		
+		Iter<Boolean> it = tt.iter();
 		
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
 		
 		System.out.println("-----PreorderTree-----");
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
@@ -74,29 +78,25 @@ public class Test {
 		tree3.add(new Student("Kurt Bach", 4));
 		tree3.add(new Student("Anna Berg", 9));
 		
+		System.out.println("--Tree Ausgabe");
 		TreeIter<Student> it3 = tree3.iterator();
 		while (it3.hasNext()) {
 			System.out.print(it3.next().toString() + " ");
 		}
-		
-		it3 = tree3.iterator();
 		System.out.println();
-		System.out.println(it3.next());
-		System.out.println(it3.next());
-		System.out.println(it3.next());
-		System.out.println(it3.previous());
-		System.out.println(it3.previous());
-		
+		System.out.println("--Tree contains");
 		it3 = tree3.contains(new Student("Otto Haber", 7));
 		
 		while (it3.hasNext()) {
-			System.out.println(it3.next());
+			System.out.print(it3.next());
 		}
 		
+		System.out.println();
+		System.out.println("--Tree Search");
 		Iter<Boolean> it4 = tree3.search(new Student("Kurt Bach", 4));
 		
 		while (it4.hasNext()) {
-			System.out.println(it4.next());
+			System.out.print(it4.next());
 		}
 		
 		System.out.println();

@@ -43,34 +43,41 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 	@Override // node = String
 	public Iter<Boolean> search(T element) {
 		Node currentNode = this.root;
-		//currentPath = this.searchPath;
 		
 		if (element.compareTo(this.root.element) == 0) {
-			return null; //???
+			//TODO entspricht der gefundene Knoten der Wurzel, so
+			// soll ein leerer Iterator zurückgegeben werden
+			return null;
 		} else {
-			while (currentNode != null && currentNode.element.compareTo(element) != 0) {  
-				if (element.compareTo(element) < 0) {
+			while (currentNode != null) {  
+				if (element.compareTo(currentNode.element) < 0) {
 					currentNode = currentNode.left;
 					this.b.add(false);
-					//currentPath += "left ";
-				} else {
+				} else if (element.compareTo(currentNode.element) > 0) {
 					currentNode = currentNode.right;
 					this.b.add(true);
-				}
+				} else
+					return new SearchIterImp();
 			}
 		}
 		
-		//TODO entspricht der gefundene Knoten der Wurzel, so
-		// soll ein leerer Iterator zurückgegeben werden
-		
-		//return currentNode == null ? "Knoten wurde nicht gefunden" : "OK";
-		return new SearchItImp();
+		return new SearchIterImp();
 	}
 	
 	@Override
 	public TreeIter<T> contains(T element) {
-		search(element);
-		return null;
+		Iter<Boolean> iter = search(element);
+		
+		while (iter.hasNext()) {
+			// left sub-tree
+			if (iter.next() == false)
+				this.child.add(root.left);
+			// right sub-tree
+			else
+				this.child.add(root.right);
+		}
+		
+		return new TreeIterImp();
 	}
 
 }
