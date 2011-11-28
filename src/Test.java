@@ -37,23 +37,20 @@ public class Test {
 		tree1.add("Anna");
 		
 		System.out.println("--Tree Ausgabe");
+		
 		TreeIter<String> it1 = tree1.iterator();
 		while (it1.hasNext()) {
 			System.out.print(it1.next().toString() + " ");
 		}
 		
-		/*it1 = tree1.contains("Bananae");
+		System.out.println();
+		System.out.println("--Tree contains");
 		
+		it1 = tree1.contains("Zitrone");
 		while (it1.hasNext()) {
-			System.out.println(it1.next());
+			System.out.print(it1.next());
 		}
-		
-		tree1.contains("Kirsche");
-		
-		while (it1.hasNext()) {
-			System.out.println(it1.next());
-		}*/
-		
+	
 		System.out.println();
 		System.out.println("--Tree Search");
 		Iter<Boolean> it2 = tree1.search("hugo");
@@ -85,6 +82,7 @@ public class Test {
 		while (it3.hasNext()) {
 			System.out.print(it3.next().toString() + " ");
 		}
+		
 		System.out.println();
 		System.out.println("--Tree contains");
 		it3 = tree3.contains(new Student("Max Mustermann", 2));

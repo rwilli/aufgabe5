@@ -95,8 +95,28 @@ public class ReplaceableTree<T> extends Tree<T> {
 	
 	@Override
 	public TreeIter<T> contains(T element) {
-		// TODO Auto-generated method stub
-		return null;
+		Iter<Boolean> iter = search(element);
+		Node n;
+		
+		if (iter != null) {
+			n = this.root;
+			
+			while (iter.hasNext()) {
+				// left sub-tree
+				if (iter.next() == false)
+					n = n.left;
+				// right sub-tree
+				else
+					n = n.right;
+			}
+		} else
+			return null;
+		
+		this.child = new List<Node>();
+		
+		inorderTraverse(n);
+		
+		return new TreeIterImp();
 	}
 
 	@Override
