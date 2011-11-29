@@ -216,8 +216,28 @@ public abstract class Tree<T> {
 
 		@Override
 		public TreeIter<T> down() {
-			// TODO Auto-generated method stub
-			return null;
+			List<Node> sectionBeamList = new List<Node>();
+			
+			if (current == null) {
+				Node n = this.iter.next();
+
+				if (n == null) {
+					// return new EmptyIterator();
+				}
+				current = n;
+				
+			}
+			
+			while (iter.hasNext()) {
+				
+				Node n = iter.next();
+				current = n;
+				
+				sectionBeamList.add(current);
+				
+			}
+			this.iter = sectionBeamList.iter();
+			return new TreeIterImp();
 		}
 
 	}
