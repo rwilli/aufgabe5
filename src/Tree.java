@@ -203,6 +203,7 @@ public abstract class Tree<T> {
 				current = n;
 				
 			}
+			sectionBeamList.add(current);
 			
 			while (iter.hasNext()) {
 				
