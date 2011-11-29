@@ -133,7 +133,7 @@ public class ReplaceableTree<T> extends Tree<T> {
 		if(this.root == null)
 			return;
 		// Kopieren?
-		Tree<? extends T> temp = tree
+		Tree<? extends T> temp = tree.clone();
 		
 		Node n = this.root;
 		Node parent = null;

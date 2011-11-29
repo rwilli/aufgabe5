@@ -124,7 +124,18 @@ public abstract class Tree<T> {
 		Node(T element) {
 			this.element = element;
 		}
+		Node(T element, Node left, Node right){
+			this.element = element;
+			this.left = left;
+			this.right = right;
+		}
 		
+		 public Node deepCopy() { //recursive!
+			 
+			 return new Node(element,left.deepCopy(),right.deepCopy());
+		 }
+
+
 		/*
 		 * (non-Javadoc)
 		 * 
