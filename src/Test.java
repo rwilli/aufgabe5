@@ -17,7 +17,7 @@ public class Test {
 		 * PostorderTree<Professor>
 		 * 
 		 */ 
-		System.out.println("----------ReplaceableTree----------");
+		System.out.println("----------ReplaceableTree<String>----------");
 		
 		ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
 		tree1.add("Foul");
@@ -27,6 +27,9 @@ public class Test {
 		tree1.add("hugo");
 		tree1.add("Ludwig");
 		tree1.add("Anna");
+		
+		System.out.println("--Tree toString()");
+		System.out.println(tree1);
 		
 		System.out.println("--Tree Ausgabe Inorder");
 		
@@ -73,7 +76,7 @@ public class Test {
 		//tree1.replace(position, tree);
 		
 		System.out.println();
-		System.out.println("----------InorderTree----------");
+		System.out.println("----------InorderTree<Integer>----------");
 		
 		InorderTree<Integer> tree2 = new InorderTree<Integer>();
 		tree2.add(new Integer(23));
@@ -82,6 +85,9 @@ public class Test {
 		tree2.add(new Integer(34));
 		tree2.add(new Integer(9));
 		tree2.add(new Integer(56));
+		
+		System.out.println("--Tree toString()");
+		System.out.println(tree2);
 		
 		System.out.println("--Tree Ausgabe");
 		
@@ -120,6 +126,9 @@ public class Test {
 		tree3.add(new Student("Kurt Weniger", 4));
 		tree3.add(new Student("Anna Bach", 9));
 		
+		System.out.println("--Tree toString()");
+		System.out.println(tree3);
+		
 		System.out.println("--Tree Ausgabe");
 		
 		TreeIter<Student> it1_tree3 = tree3.iterator();
@@ -153,6 +162,9 @@ public class Test {
 		tree4.add(new Professor("Lukas Schreiber", "Physik"));
 		tree4.add(new Professor("Josef Haller", "Informatik"));
 		tree4.add(new Professor("Patrick Graber", "Chemie"));
+		
+		System.out.println("--Tree toString()");
+		System.out.println(tree4);
 		
 		TreeIter<Professor> it1_tree4 = tree4.iterator();
 		
@@ -195,6 +207,9 @@ public class Test {
 		tree5.add(new Professor("Alfred Gehart", "Physik"));
 		tree5.add(new Student("Gerd Lauf", 58));
 		tree5.add(new Student("Benjamin Pogner", 45));
+		
+		System.out.println("--Tree toString()");
+		System.out.println(tree5);
 		
 		TreeIter<Person> it1_tree5 = tree5.iterator();
 		

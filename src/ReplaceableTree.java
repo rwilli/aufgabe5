@@ -54,47 +54,6 @@ public class ReplaceableTree<T> extends Tree<T> {
 		
 	}
 	
-	/**
-	 * Sets the depth for each node of a tree.
-	 * 
-	 * @param root
-	 *            the root has depth 0.
-	 */
-	private void setDepth(Node root) {
-		Stack<Node> stack = new Stack<Node>();
-
-		root.depth = 0;
-		
-		// push root to the stack
-		stack.push(root);
-
-		// walk through every node and set the according depth.
-		while (stack.size() > 0) {
-
-			Node temp = (Node) stack.pop();
-
-			if (temp != null) {
-				if (temp.left != null) {
-					int leftOfTempDepth = temp.depth + 1;
-
-					temp.left.depth = leftOfTempDepth;
-					
-					stack.push(temp.left);
-				}
-
-				if (temp.right != null) {
-					int rightOfTempDepth = temp.depth + 1;
-
-					temp.right.depth = rightOfTempDepth;
-					
-					stack.push(temp.right);
-				}
-			}
-
-		}
-
-	}
-	
 	@Override
 	public TreeIter<T> contains(T element) {
 		Iter<Boolean> iter = search(element);

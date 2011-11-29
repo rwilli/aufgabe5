@@ -11,10 +11,13 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 
 	@Override
 	public void add(T element) {
-		if (this.root == null)
+		if (this.root == null) {
 			this.root = new Node(element);
-		else
+			this.root.depth = 0;
+		} else {
 			this.root = insert(this.root, element);	
+			this.setDepth(this.root);
+		}
 	}
 	
 	/**

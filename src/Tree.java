@@ -8,6 +8,8 @@ public abstract class Tree<T> {
 	protected List<Node> child = new List<Node>();
 	protected List<Boolean> b = new List<Boolean>();
 	protected Node root;
+	// tree order output
+		protected String order = "";
 
 	public abstract TreeIter<T> contains(T element);
 
@@ -40,6 +42,96 @@ public abstract class Tree<T> {
 		build(node.right, level + 1);
 	}
 	*/
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+
+		String p = traverseForToString();
+
+		// remove dash in front of root
+		if (p.startsWith("-"))
+			p = p.substring(1, p.length());
+
+		order = "";
+		return  p;
+
+	}
+	
+	/**
+	 * Use preorder traversal for getting an adequate String represanation for
+	 * the tree.
+	 * 
+	 * @param node
+	 *            usually the root of the tree.
+	 */
+	private void preorderTraverseForToString(Node node) {
+		if (node == null)
+			return;
+
+		this.order += node + "\n";
+
+		// walk trough left sub-tree
+		preorderTraverseForToString(node.left);
+		// walk trough right sub-tree
+		preorderTraverseForToString(node.right);
+	}
+
+	/**
+	 * Returns the tree as String.
+	 * 
+	 * @return a string representation of the tree.
+	 */
+	public String traverseForToString() {
+		if (this.root != null)
+			preorderTraverseForToString(this.root);
+
+		return this.order;
+	}
+	
+	/**
+	 * Sets the depth for each node of a tree.
+	 * 
+	 * @param root
+	 *            the root has depth 0.
+	 */
+	public void setDepth(Node root) {
+		Stack<Node> stack = new Stack<Node>();
+
+		root.depth = 0;
+		
+		// push root to the stack
+		stack.push(root);
+
+		// walk through every node and set the according depth.
+		while (stack.size() > 0) {
+
+			Node temp = (Node) stack.pop();
+
+			if (temp != null) {
+				if (temp.left != null) {
+					int leftOfTempDepth = temp.depth + 1;
+
+					temp.left.depth = leftOfTempDepth;
+					
+					stack.push(temp.left);
+				}
+
+				if (temp.right != null) {
+					int rightOfTempDepth = temp.depth + 1;
+
+					temp.right.depth = rightOfTempDepth;
+					
+					stack.push(temp.right);
+				}
+			}
+
+		}
+
+	}
 
 	protected class Node {
 		protected T element;
@@ -50,6 +142,32 @@ public abstract class Tree<T> {
 
 		Node(T element) {
 			this.element = element;
+		}
+		
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see node.INode#setDepth(int)
+		 */
+		@Override
+		public String toString() {
+			return calculateHardspaces(this.depth) + "-" + this.element;
+		}
+
+		/**
+		 * Calculates the hardspaces to add for the toString method according to the
+		 * depth
+		 * 
+		 * @param depth the depth of a node
+		 * @return amount of hardspaces
+		 */
+		private String calculateHardspaces(int depth) {
+
+			String hardspaces = "";
+			for (int level = 1; level < depth; level++) {
+				hardspaces += " ";
+			}
+			return hardspaces;
 		}
 
 	}
