@@ -128,11 +128,16 @@ public class ReplaceableTree<T> extends Tree<T> {
 		return new TreeIterImp();
 	}
 	
+	/**
+	 *Replaces a Node with ah Subtree tree. 
+	 * @param position
+	 * @param tree
+	 */
 	public void replace(Iter<Boolean> position, Tree<? extends T> tree) {
 	
 		if(this.root == null)
 			return;
-		// Kopieren?
+		
 		Tree<? extends T> temp = tree.clone();
 		
 		Node n = this.root;
@@ -161,11 +166,11 @@ public class ReplaceableTree<T> extends Tree<T> {
 			
 			// depending of the last direction, set new tree left or right
 			if(!direction){
-				parent.left = temp.root;
+		//		parent.left = temp.root;
 			}else{
-				parent.right = temp.root;
+	//			parent.right = temp.root;
 			}
-			temp.root.parent = parent;
+		//	temp.root.parent = parent;
 
 		}
 	
