@@ -53,32 +53,6 @@ public class ReplaceableTree<T> extends Tree<T> {
 		}	
 		
 	}
-	
-	@Override
-	public TreeIter<T> contains(T element) {
-		Iter<Boolean> iter = search(element);
-		Node n;
-		
-		if (iter != null) {
-			n = this.root;
-			
-			while (iter.hasNext()) {
-				// left sub-tree
-				if (iter.next() == false)
-					n = n.left;
-				// right sub-tree
-				else
-					n = n.right;
-			}
-		} else
-			return null;
-		
-		this.child = new List<Node>();
-		
-		inorderTraverse(n);
-		
-		return new TreeIterImp();
-	}
 
 	@Override
 	public Iter<Boolean> search(T element) {
@@ -128,6 +102,27 @@ public class ReplaceableTree<T> extends Tree<T> {
 		return new TreeIterImp();
 	}
 	
+	private void traverse() {
+		if (this.root != null)
+			inorderTraverse(this.root);
+	}
+
+	/**
+	 * Preorder method
+	 * First root node then walk trough the left sub-tree
+	 * and then trough the right sub-tree
+	 * 
+	 * @param node root node
+	 */
+	private void inorderTraverse(Node node) {
+		if (node == null) 
+			return;
+
+		inorderTraverse(node.left);	// walk trough left sub-tree
+		this.child.add(node);
+		inorderTraverse(node.right);	// walk trough right sub-tree
+	}
+	
 	/**
 	 *Replaces a Node with ah Subtree tree. 
 	 * @param position
@@ -174,27 +169,6 @@ public class ReplaceableTree<T> extends Tree<T> {
 
 		}
 	
-	}
-	
-	private void traverse() {
-		if (this.root != null)
-			inorderTraverse(this.root);
-	}
-
-	/**
-	 * Preorder method
-	 * First root node then walk trough the left sub-tree
-	 * and then trough the right sub-tree
-	 * 
-	 * @param node root node
-	 */
-	private void inorderTraverse(Node node) {
-		if (node == null) 
-			return;
-
-		inorderTraverse(node.left);	// walk trough left sub-tree
-		this.child.add(node);
-		inorderTraverse(node.right);	// walk trough right sub-tree
 	}
 	
 	@Override

@@ -13,7 +13,52 @@ public abstract class Tree<T> {
 
 	
 	// evtl hier implementieren
-	public abstract TreeIter<T> contains(T element);
+	//public abstract TreeIter<T> contains(T element);
+	public TreeIter<T> contains(T element) {
+		Iter<Boolean> iter = search(element);
+		Node n;
+		
+		if (iter != null) {
+			n = this.root;
+			
+			while (iter.hasNext()) {
+				// left sub-tree
+				if (iter.next() == false)
+					n = n.left;
+				// right sub-tree
+				else
+					n = n.right;
+			}
+		} else
+			return null;
+		
+		this.child = new List<Node>();
+		
+		inorderTraverse(n);
+		
+		return new TreeIterImp();
+	}
+	
+	private void traverse() {
+		if (this.root != null)
+			inorderTraverse(this.root);
+	}
+
+	/**
+	 * Preorder method
+	 * First root node then walk trough the left sub-tree
+	 * and then trough the right sub-tree
+	 * 
+	 * @param node root node
+	 */
+	private void inorderTraverse(Node node) {
+		if (node == null) 
+			return;
+
+		inorderTraverse(node.left);	// walk trough left sub-tree
+		this.child.add(node);
+		inorderTraverse(node.right);	// walk trough right sub-tree
+	}
 
 	public abstract Iter<Boolean> search(T element);
 
