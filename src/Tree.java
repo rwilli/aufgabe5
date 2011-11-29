@@ -65,7 +65,7 @@ public abstract class Tree<T> {
 	 * 
 	 * @return a string representation of the tree.
 	 */
-	public String traverseForToString() {
+	private String traverseForToString() {
 		if (this.root != null)
 			preorderTraverseForToString(this.root);
 
