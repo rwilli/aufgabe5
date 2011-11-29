@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 
 public class Test {
 
@@ -7,15 +5,6 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		/*
-		Person p = new Student("Franz");
-		Person p1 = new Professor("Franz");
-		
-		System.out.println(p.name.compareTo(p1.name));
-		*/
-		
-		
 		/*
 		 * Testcase 1
 		 * 
@@ -29,6 +18,7 @@ public class Test {
 		 * 
 		 */ 
 		System.out.println("----------ReplaceableTree----------");
+		
 		ReplaceableTree<String> tree1 = new ReplaceableTree<String>();
 		tree1.add("Foul");
 		tree1.add("Zitrone");
@@ -38,29 +28,51 @@ public class Test {
 		tree1.add("Ludwig");
 		tree1.add("Anna");
 		
-		System.out.println("--Tree Ausgabe");
+		System.out.println("--Tree Ausgabe Inorder");
 		
-		TreeIter<String> it1 = tree1.iterator();
-		while (it1.hasNext()) {
-			System.out.print(it1.next().toString() + " ");
+		TreeIter<String> it1_tree1 = tree1.iterator();
+		
+		while (it1_tree1.hasNext()) {
+			System.out.print(it1_tree1.next() + " ");
 		}
 		
 		System.out.println();
-		System.out.println("--Tree contains");
+		System.out.println("--Tree contains Zitrone - Ausgabe Inorder");
 		
-		it1 = tree1.contains("Zitrone");
-		while (it1.hasNext()) {
-			System.out.print(it1.next());
+		it1_tree1 = tree1.contains("Zitrone");
+		
+		while (it1_tree1.hasNext()) {
+			System.out.print(it1_tree1.next() + " ");
 		}
 	
 		System.out.println();
-		System.out.println("--Tree Search");
-		Iter<Boolean> it2 = tree1.search("hugo");
+		System.out.println("--Tree Search hugo");
 		
-		while (it2.hasNext()) {
-			System.out.print(it2.next());
+		Iter<Boolean> it2_tree1 = tree1.search("hugo");
+		
+		while (it2_tree1.hasNext()) {
+			System.out.print(it2_tree1.next() + " ");
 		}
 		
+		System.out.println();
+		System.out.println("--Tree Replace ");
+		ReplaceableTree<String> tree1_1 = new ReplaceableTree<String>();
+		tree1_1.add("Tor");
+		tree1_1.add("Zeitung");
+		tree1_1.add("Handy");
+		
+		System.out.println("--Tree Ausgabe Inorder");
+		
+		TreeIter<String> it1_tree1_1 = tree1_1.iterator();
+		
+		while (it1_tree1_1.hasNext()) {
+			System.out.print(it1_tree1_1.next() + " ");
+		}
+		
+		//TODO
+		//tree1.replace(position, tree);
+		
+		System.out.println();
 		System.out.println("----------InorderTree----------");
 		
 		InorderTree<Integer> tree2 = new InorderTree<Integer>();
@@ -73,63 +85,68 @@ public class Test {
 		
 		System.out.println("--Tree Ausgabe");
 		
-		TreeIter<Integer> it22 = tree2.iterator();
-		while (it22.hasNext()) {
-			System.out.print(it22.next());
+		TreeIter<Integer> it1_tree2 = tree2.iterator();
+		
+		while (it1_tree2.hasNext()) {
+			System.out.print(it1_tree2.next() + " ");
 		}
 		
 		System.out.println();
-		/*System.out.println("--Tree contains");
+		System.out.println("--Tree contains 4");
 		
-		it1 = tree1.contains("Zitrone");
-		while (it1.hasNext()) {
-			System.out.print(it1.next());
+		it1_tree2 = tree2.contains(4);
+		
+		while (it1_tree2.hasNext()) {
+			System.out.print(it1_tree2.next() + " ");
 		}
 	
 		System.out.println();
-		System.out.println("--Tree Search");
-		Iter<Boolean> it2 = tree1.search("hugo");
+		System.out.println("--Tree Search 9");
 		
-		while (it2.hasNext()) {
-			System.out.print(it2.next());
-		}*/
+		Iter<Boolean> it2_tree2 = tree2.search(9);
 		
-		PreorderTree<String> tree99 = new PreorderTree<String>();
+		while (it2_tree2.hasNext()) {
+			System.out.print(it2_tree2.next() + " ");
+		}
 		
 		System.out.println();
 		System.out.println("-----PreorderTree-----");
+		
 		PreorderTree<Student> tree3 = new PreorderTree<Student>();
-		tree3.add(new Student("H", 1));
-		tree3.add(new Student("M", 2));
-		tree3.add(new Student("F", 5));
-		tree3.add(new Student("O", 7));
-		tree3.add(new Student("K", 4));
-		tree3.add(new Student("A", 9));
+		tree3.add(new Student("Hugo Sanchez", 1));
+		tree3.add(new Student("Maria Schreiber", 2));
+		tree3.add(new Student("Fadi Lumba", 5));
+		tree3.add(new Student("Otto Karl", 7));
+		tree3.add(new Student("Kurt Weniger", 4));
+		tree3.add(new Student("Anna Bach", 9));
 		
 		System.out.println("--Tree Ausgabe");
-		TreeIter<Student> it3 = tree3.iterator();
-		while (it3.hasNext()) {
-			System.out.print(it3.next().toString() + " ");
+		
+		TreeIter<Student> it1_tree3 = tree3.iterator();
+		
+		while (it1_tree3.hasNext()) {
+			System.out.print(it1_tree3.next() + " ");
 		}
 		
 		System.out.println();
-		System.out.println("--Tree contains");
-		it3 = tree3.contains(new Student("Max Mustermann", 2));
+		System.out.println("--Tree contains Fadi Lumba");
+		it1_tree3 = tree3.contains(new Student("Fadi Lumba", 5));
 		
-		while (it3.hasNext()) {
-			System.out.print(it3.next() + " ");
+		while (it1_tree3.hasNext()) {
+			System.out.print(it1_tree3.next() + " ");
 		}
 		
 		System.out.println();
-		System.out.println("--Tree Search");
-		Iter<Boolean> it4 = tree3.search(new Student("Kurt Bach", 4));
+		System.out.println("--Tree Search Kurt Bach");
+		Iter<Boolean> it2_tree3 = tree3.search(new Student("Kurt Bach", 4));
 		
-		while (it4.hasNext()) {
-			System.out.print(it4.next());
+		while (it2_tree3.hasNext()) {
+			System.out.print(it2_tree3.next() + " ");
 		}
 		
 		System.out.println();
 		System.out.println("-----PostorderTree-----");
+		
 		PostorderTree<Professor> tree4 = new PostorderTree<Professor>();
 		tree4.add(new Professor("Florian Proll", "Informatik"));
 		tree4.add(new Professor("Anton Wall", "Elektronik"));
@@ -137,23 +154,26 @@ public class Test {
 		tree4.add(new Professor("Josef Haller", "Informatik"));
 		tree4.add(new Professor("Patrick Graber", "Chemie"));
 		
-		TreeIter<Professor> it5 = tree4.iterator();
-		while (it5.hasNext()) {
-			System.out.print(it5.next().toString() + " ");
+		TreeIter<Professor> it1_tree4 = tree4.iterator();
+		
+		while (it1_tree4.hasNext()) {
+			System.out.print(it1_tree4.next() + " ");
 		}
 		
 		System.out.println();
-		System.out.println("-----InorderTree-----");
-		InorderTree<Professor> tree5 = new InorderTree<Professor>();
-		tree5.add(new Professor("Florian Proll", "Informatik"));
-		tree5.add(new Professor("Anton Wall", "Elektronik"));
-		tree5.add(new Professor("Lukas Schreiber", "Physik"));
-		tree5.add(new Professor("Josef Haller", "Informatik"));
-		tree5.add(new Professor("Patrick Graber", "Chemie"));
+		System.out.println("--Tree contains Anton Wall");
+		it1_tree4 = tree4.contains(new Professor("Anton Wall", "Elektronik"));
 		
-		TreeIter<Professor> it6 = tree5.iterator();
-		while (it6.hasNext()) {
-			System.out.print(it6.next().toString() + " ");
+		while (it1_tree4.hasNext()) {
+			System.out.print(it1_tree4.next() + " ");
+		}
+		
+		System.out.println();
+		System.out.println("--Tree Search Josef Haller");
+		Iter<Boolean> it2_tree4 = tree4.search(new Professor("Josef Haller", "Informatik"));
+		
+		while (it2_tree4.hasNext()) {
+			System.out.print(it2_tree4.next() + " ");
 		}
 		
 		/*
@@ -166,6 +186,41 @@ public class Test {
 		 * ersetzen durch PreorderTree<Student> und PostorderTree<Professor>
 		 * 
 		 */
+		System.out.println();
+		System.out.println("----------ReplaceableTree<Person>----------");
+		ReplaceableTree<Person> tree5 = new ReplaceableTree<Person>();
+		tree5.add(new Student("Test Testmann", 22));
+		tree5.add(new Professor("Dirk Bach", "Informatik"));
+		tree5.add(new Professor("Paul Polak", "Elektronik"));
+		tree5.add(new Professor("Alfred Gehart", "Physik"));
+		tree5.add(new Student("Gerd Lauf", 58));
+		tree5.add(new Student("Benjamin Pogner", 45));
+		
+		TreeIter<Person> it1_tree5 = tree5.iterator();
+		
+		while (it1_tree5.hasNext()) {
+			System.out.print(it1_tree5.next() + " ");
+		}
+		
+		System.out.println();
+		System.out.println("--Tree contains Paul Polak");
+		it1_tree5 = tree5.contains(new Professor("Paul Polak", "Elektronik"));
+		
+		while (it1_tree5.hasNext()) {
+			System.out.print(it1_tree5.next() + " ");
+		}
+		
+		System.out.println();
+		System.out.println("--Tree Search Gerd Lauf");
+		Iter<Boolean> it2_tree5 = tree5.search(new Student("Gerd Lauf", 58));
+		
+		while (it2_tree5.hasNext()) {
+			System.out.print(it2_tree5.next() + " ");
+		}
+		
+		// TODO
+		//tree5.replace(position, tree);
+		
 	}
 
 }
