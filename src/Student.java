@@ -24,4 +24,9 @@ public class Student extends Person {
 		this.matrNr = matrNr;
 	}
 
+	@Override
+	public String toString() {
+		return this.name + " " + this.matrNr;
+	}
+	
 }

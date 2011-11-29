@@ -82,6 +82,8 @@ public class ReplaceableTree<T> extends Tree<T> {
 
 	@Override
 	public Iter<Boolean> search(T element) {
+		this.b = new List<Boolean>();
+		Stack<Boolean> s2 = new Stack<Boolean>();
 		Stack<Node> s = new Stack<Node>();
 		
 		if (this.root != null) 
@@ -94,13 +96,20 @@ public class ReplaceableTree<T> extends Tree<T> {
 		        	if (n.element.equals(element)) {
 		        		Node p = n.parent;
 		        		while (p != null) {
-		        			if(p.left == n)
-		        				this.b.add(false);
-		        			else
-		        				this.b.add(true);
-		        			n = p; 
+		        			if(p.left == n) {
+		        				s2.push(false);
+		        				
+		        			}else{
+		        				s2.push(true);
+		        				
+		        			}n = p; 
 		        			p = p.parent;
 		        		}
+		        		
+		        		while (!s2.isEmpty()) {
+		        			this.b.add(s2.pop());
+		        		}
+		        		
 		        		return new SearchIterImp();
 		        	}											
 		            if (n.right != null){       

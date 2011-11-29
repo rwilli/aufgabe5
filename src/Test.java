@@ -27,6 +27,8 @@ public class Test {
 		tree1.add("hugo");
 		tree1.add("Ludwig");
 		tree1.add("Anna");
+		tree1.add("Otto");
+		tree1.add("Geld");
 		
 		System.out.println("--Tree toString()");
 		System.out.println(tree1);
@@ -64,16 +66,14 @@ public class Test {
 		tree1_1.add("Zeitung");
 		tree1_1.add("Handy");
 		
-		System.out.println("--Tree Ausgabe Inorder");
+		System.out.println("---Tree toString()");
+		System.out.println(tree1_1);
 		
-		TreeIter<String> it1_tree1_1 = tree1_1.iterator();
+		// replace hugo -> it2_tree1
+		//TODO tree1.replace(it2_tree1, tree1_1);
 		
-		while (it1_tree1_1.hasNext()) {
-			System.out.print(it1_tree1_1.next() + " ");
-		}
-		
-		//TODO
-		//tree1.replace(position, tree);
+		System.out.println();
+		System.out.println(tree1);
 		
 		System.out.println();
 		System.out.println("----------InorderTree<Integer>----------");
@@ -146,8 +146,8 @@ public class Test {
 		}
 		
 		System.out.println();
-		System.out.println("--Tree Search Kurt Bach");
-		Iter<Boolean> it2_tree3 = tree3.search(new Student("Kurt Bach", 4));
+		System.out.println("--Tree Search Kurt Weniger");
+		Iter<Boolean> it2_tree3 = tree3.search(new Student("Kurt Weniger", 4));
 		
 		while (it2_tree3.hasNext()) {
 			System.out.print(it2_tree3.next() + " ");
@@ -228,14 +228,22 @@ public class Test {
 		System.out.println();
 		System.out.println("--Tree Search Gerd Lauf");
 		Iter<Boolean> it2_tree5 = tree5.search(new Student("Gerd Lauf", 58));
+		Iter<Boolean> it3_tree5 = tree5.search(new Student("Benjamin Pogner", 45));
 		
 		while (it2_tree5.hasNext()) {
 			System.out.print(it2_tree5.next() + " ");
 		}
 		
-		// TODO
-		//tree5.replace(position, tree);
+		//TODO
+		//replace Gerd Lauf -> it2_tree5
+		//tree5.replace(it2_tree5, tree3);
+		//tree5.replace(it3_tree5, tree4);
 		
+		//TODO TreeIter<Person> it4_tree5 = tree5.iterator().down();
+		
+		//while (it4_tree5.hasNext()) {
+		//	System.out.print(it4_tree5.next() + " ");
+		//}
 	}
 
 }

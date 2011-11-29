@@ -43,8 +43,10 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		return root;
 	} 
 
-	@Override // node = String
+	@Override
 	public Iter<Boolean> search(T element) {
+		this.b = new List<Boolean>();
+		
 		Node currentNode = this.root;
 		
 		if (element.compareTo(this.root.element) == 0) {

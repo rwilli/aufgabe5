@@ -19,4 +19,9 @@ public class Professor extends Person {
 		this.institut = institut;
 	}
 
+	@Override
+	public String toString() {
+		return this.name + " " + this.institut;
+	}
+
 }
