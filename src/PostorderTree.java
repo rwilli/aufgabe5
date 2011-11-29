@@ -1,5 +1,3 @@
-import Tree.Node;
-
 /**
  * PostorderTree class extends SortedTree and
  * implements postorder traverse method

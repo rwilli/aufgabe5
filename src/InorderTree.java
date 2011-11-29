@@ -1,5 +1,3 @@
-import Tree.Node;
-
 /**
  * InorderTree class extends SortedTree and
  * implements inorder traverse method

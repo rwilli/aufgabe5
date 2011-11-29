@@ -137,24 +137,29 @@ public class Test {
 			System.out.print(it1_tree3.next() + " ");
 		}
 		
-		TreeIter<Student> it4_tree3 = tree3.iterator();
-		if (it4_tree3.hasNext()) {
-			System.out.println("VORHER: " + it4_tree3.next());
-		}
-		if (it4_tree3.hasNext()) {
-			System.out.println("VORHER: " + it4_tree3.next());
-		}
-	
+		System.out.println();
+		System.out.println("--- Second independent Iterator Test ---");
 		TreeIter<Student> it5_tree3 = tree3.iterator();
 		while (it5_tree3.hasNext()) {
 			System.out.print(it5_tree3.next() + " ");
 		}
-		/*
+		
+		System.out.println();
+		System.out.println("--- DOWN Test ---");
+		TreeIter<Student> it4_tree3 = tree3.iterator();
+		if (it4_tree3.hasNext()) {
+			System.out.println("Element 1 before down: " + it4_tree3.next());
+		}
+		if (it4_tree3.hasNext()) {
+			System.out.println("Element 2 before down: " + it4_tree3.next());
+		}
+	
+		System.out.println("--- DOWN Output ---");
 		TreeIter<Student> it3_tree3 = it4_tree3.down();
 		while (it3_tree3.hasNext()) {
-			System.out.println("DownIterAusgabe: " + it3_tree3.next() + " ");
+			System.out.print(it3_tree3.next() + " ");
 		}
-		*/
+		
 		
 		System.out.println();
 		System.out.println("--Tree contains Fadi Lumba");

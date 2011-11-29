@@ -219,14 +219,9 @@ public abstract class Tree<T> {
 				
 			}
 			sectionBeamList.add(current);
-			System.out.println("DOWNROOT: " + current);
 			
 			while (hasNext()) {
-				System.out.println("SIZE: " + child.size());
-				System.out.println("ITER NEXT: " + next());
-				
-				// sectionBeamList.add();
-				// System.out.println("CURRENT: " + current);
+				sectionBeamList.add(iter.next());
 			}
 			
 			return new TreeIterImp(sectionBeamList);
