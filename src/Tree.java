@@ -11,6 +11,8 @@ public abstract class Tree<T> {
 	// tree order output
 	protected String order = "";
 
+	
+	// evtl hier implementieren
 	public abstract TreeIter<T> contains(T element);
 
 	public abstract Iter<Boolean> search(T element);
@@ -18,6 +20,9 @@ public abstract class Tree<T> {
 	public abstract void add(T element);
 
 	public abstract TreeIter<T> iterator();
+	
+	public abstract Tree<T> clone();
+
 
 	// TODO Baum in Liste konvertieren
 	// pro Baum-Level eine Liste erstellen
@@ -132,6 +137,7 @@ public abstract class Tree<T> {
 		}
 
 	}
+
 
 	protected class Node {
 		protected T element;
