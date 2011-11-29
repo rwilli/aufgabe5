@@ -192,13 +192,14 @@ public abstract class Tree<T> {
 		@Override
 		public TreeIter<T> down() {
 			List<Node> sectionBeamList = new List<Node>();
+			TreeIterImp downIter = new TreeIterImp();
 			
 			if (current == null) {
 				Node n = this.iter.next();
-
+				
 				if (n == null) {
-					this.iter = sectionBeamList.iter();
-					return new TreeIterImp();
+					downIter.iter = sectionBeamList.iter();
+					return downIter;
 				}
 				current = n;
 				
@@ -213,8 +214,8 @@ public abstract class Tree<T> {
 				sectionBeamList.add(current);
 				
 			}
-			this.iter = sectionBeamList.iter();
-			return new TreeIterImp();
+			downIter.iter = sectionBeamList.iter();
+			return downIter;
 		}
 
 	}
