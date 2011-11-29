@@ -1,3 +1,5 @@
+import Tree.Node;
+
 /**
  * InorderTree class extends SortedTree and
  * implements inorder traverse method
@@ -9,6 +11,8 @@ public class InorderTree<T extends Comparable<? super T>> extends SortedTree<T> 
 
 	@Override
 	public TreeIter<T> iterator() {
+		
+		this.child = new List<Node>();
 		traverse();
 		
 		return new TreeIterImp();

@@ -86,7 +86,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		} else
 			return null;
 		//TODO ?? implement sub-type related??
-		addNodes(n);
+		// addNodes(n);
 		
 		return new TreeIterImp();
 	}

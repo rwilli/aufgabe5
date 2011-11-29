@@ -1,3 +1,5 @@
+import Tree.Node;
+
 /**
  * PostorderTree class extends SortedTree and
  * implements postorder traverse method
@@ -9,6 +11,8 @@ public class PostorderTree<T extends Comparable<? super T>> extends SortedTree<T
 
 	@Override
 	public TreeIter<T> iterator() {
+		
+		this.child = new List<Node>();
 		traverse();
 		
 		return new TreeIterImp();

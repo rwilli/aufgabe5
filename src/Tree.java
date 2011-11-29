@@ -78,7 +78,7 @@ public abstract class Tree<T> {
 	 * @param root
 	 *            the root has depth 0.
 	 */
-	public void setDepth(Node root) {
+	protected void setDepth(Node root) {
 		Stack<Node> stack = new Stack<Node>();
 
 		root.depth = 0;
@@ -171,6 +171,10 @@ public abstract class Tree<T> {
 		public TreeIterImp() {
 			this.iter = child.iter();
 		}
+		
+		public TreeIterImp(List<Node> sectionBeamList) {
+			this.iter = sectionBeamList.iter();
+		}
 
 		@Override
 		public T next() {
@@ -202,31 +206,30 @@ public abstract class Tree<T> {
 
 		@Override
 		public TreeIter<T> down() {
+			
 			List<Node> sectionBeamList = new List<Node>();
-			TreeIterImp downIter = new TreeIterImp();
 			
 			if (current == null) {
 				Node n = this.iter.next();
 				
 				if (n == null) {
-					downIter.iter = sectionBeamList.iter();
-					return downIter;
+					return new TreeIterImp(sectionBeamList);
 				}
 				current = n;
 				
 			}
 			sectionBeamList.add(current);
+			System.out.println("DOWNROOT: " + current);
 			
-			while (iter.hasNext()) {
+			while (hasNext()) {
+				System.out.println("SIZE: " + child.size());
+				System.out.println("ITER NEXT: " + next());
 				
-				Node n = iter.next();
-				current = n;
-				
-				sectionBeamList.add(current);
-				
+				// sectionBeamList.add();
+				// System.out.println("CURRENT: " + current);
 			}
-			downIter.iter = sectionBeamList.iter();
-			return downIter;
+			
+			return new TreeIterImp(sectionBeamList);
 		}
 
 	}

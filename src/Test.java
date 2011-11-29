@@ -137,6 +137,25 @@ public class Test {
 			System.out.print(it1_tree3.next() + " ");
 		}
 		
+		TreeIter<Student> it4_tree3 = tree3.iterator();
+		if (it4_tree3.hasNext()) {
+			System.out.println("VORHER: " + it4_tree3.next());
+		}
+		if (it4_tree3.hasNext()) {
+			System.out.println("VORHER: " + it4_tree3.next());
+		}
+	
+		TreeIter<Student> it5_tree3 = tree3.iterator();
+		while (it5_tree3.hasNext()) {
+			System.out.print(it5_tree3.next() + " ");
+		}
+		/*
+		TreeIter<Student> it3_tree3 = it4_tree3.down();
+		while (it3_tree3.hasNext()) {
+			System.out.println("DownIterAusgabe: " + it3_tree3.next() + " ");
+		}
+		*/
+		
 		System.out.println();
 		System.out.println("--Tree contains Fadi Lumba");
 		it1_tree3 = tree3.contains(new Student("Fadi Lumba", 5));
