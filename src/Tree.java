@@ -23,31 +23,6 @@ public abstract class Tree<T> {
 	
 	public abstract Tree<T> clone();
 
-
-	// TODO Baum in Liste konvertieren
-	// pro Baum-Level eine Liste erstellen
-
-	/*
-	List<List<Node>> ol = new List<List<Node>>();
-	void build(Node node, int level) {
-		if (node == null)
-			return;
-		
-		List<Node> il;
-		if (ol.size() < level) {
-			il = new List<Node>();
-		} else {
-
-			// il= ol.get(level);
-		}
-
-		il.add(node);
-		// ol.put(level,il);
-		build(node.left, level + 1);
-		build(node.right, level + 1);
-	}
-	*/
-	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -222,7 +197,8 @@ public abstract class Tree<T> {
 				Node n = this.iter.next();
 
 				if (n == null) {
-					// return new EmptyIterator();
+					this.iter = sectionBeamList.iter();
+					return new TreeIterImp();
 				}
 				current = n;
 				
@@ -276,34 +252,6 @@ public abstract class Tree<T> {
 		@Override
 		public boolean hasPrevious() {
 			return this.iter.hasPrevious();
-		}
-
-	}
-
-	// TODO: added EmptyIter, not sure if correct
-	protected class EmptyIterImp implements Iter<Boolean> {
-
-		public EmptyIterImp() {
-		}
-
-		@Override
-		public Boolean next() {
-			return null;
-		}
-
-		@Override
-		public Boolean previous() {
-			return null;
-		}
-
-		@Override
-		public boolean hasNext() {
-			return false;
-		}
-
-		@Override
-		public boolean hasPrevious() {
-			return false;
 		}
 
 	}

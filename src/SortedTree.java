@@ -50,7 +50,7 @@ public abstract class SortedTree<T extends Comparable<? super T>> extends Tree<T
 		Node currentNode = this.root;
 		
 		if (element.compareTo(this.root.element) == 0) {
-			return new EmptyIterImp();
+			return new SearchIterImp();
 		} else {
 			while (currentNode != null) {  
 				if (element.compareTo(currentNode.element) < 0) {
