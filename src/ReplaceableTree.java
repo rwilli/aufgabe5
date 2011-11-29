@@ -192,4 +192,15 @@ public class ReplaceableTree<T> extends Tree<T> {
 		inorderTraverse(node.right);	// walk trough right sub-tree
 	}
 	
+	@Override
+	public Tree<T> clone() {
+		
+		ReplaceableTree<T> tmp =  new ReplaceableTree<T>();
+		tmp.root = this.root.deepCopy();
+		tmp.setDepth(tmp.root);
+		return tmp;
+		
+	}
+
+	
 }

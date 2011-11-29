@@ -34,5 +34,14 @@ public class PostorderTree<T extends Comparable<? super T>> extends SortedTree<T
 		postorderTraverse(node.right);	// walk trough right sub-tree
 		this.child.add(node);
 	}
+	@Override
+	public Tree<T> clone() {
+		
+		PostorderTree<T> tmp =  new PostorderTree<T>();
+		tmp.root = this.root.deepCopy();
+		tmp.setDepth(tmp.root);
+		return tmp;
+		
+	}
 
 }

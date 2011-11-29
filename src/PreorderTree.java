@@ -34,5 +34,14 @@ public class PreorderTree<T extends Comparable<? super T>> extends SortedTree<T>
 		preorderTraverse(node.left);	// walk trough left sub-tree
 		preorderTraverse(node.right);	// walk trough right sub-tree
 	}
-	
+	@Override
+	public Tree<T> clone() {
+		
+		PreorderTree<T> tmp =  new PreorderTree<T>();
+		tmp.root = this.root.deepCopy();
+		tmp.setDepth(tmp.root);
+		return tmp;
+		
+	}
+
 }

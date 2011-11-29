@@ -34,6 +34,15 @@ public class InorderTree<T extends Comparable<? super T>> extends SortedTree<T> 
 		this.child.add(node);
 		inorderTraverse(node.right);	// walk trough right sub-tree
 	}
+	@Override
+	public Tree<T> clone() {
+		
+		InorderTree<T> tmp =  new InorderTree<T>();
+		tmp.root = this.root.deepCopy();
+		tmp.setDepth(tmp.root);
+		return tmp;
+		
+	}
 
 
 }
