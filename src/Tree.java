@@ -329,10 +329,20 @@ public abstract class Tree<T> {
 			}
 			sectionBeamList.add(current);
 
+			Node nextNode;
+			Node previousNode = current;
 			while (hasNext()) {
-				sectionBeamList.add(iter.next());
-			}
 
+				nextNode = iter.next();
+
+				if (nextNode.depth >= previousNode.depth) {
+					sectionBeamList.add(nextNode);
+					previousNode = nextNode;
+				} else {
+					break;
+				}
+
+			}
 			return new TreeIterImp(sectionBeamList);
 		}
 
@@ -358,6 +368,7 @@ public abstract class Tree<T> {
 
 		/*
 		 * (non-Javadoc)
+		 * 
 		 * @see Iter#next()
 		 */
 		@Override
@@ -368,8 +379,10 @@ public abstract class Tree<T> {
 
 			return current;
 		}
+
 		/*
 		 * (non-Javadoc)
+		 * 
 		 * @see Iter#previous()
 		 */
 		@Override
@@ -383,6 +396,7 @@ public abstract class Tree<T> {
 
 		/*
 		 * (non-Javadoc)
+		 * 
 		 * @see Iter#hasNext()
 		 */
 		@Override
@@ -392,6 +406,7 @@ public abstract class Tree<T> {
 
 		/*
 		 * (non-Javadoc)
+		 * 
 		 * @see Iter#hasPrevious()
 		 */
 		@Override
