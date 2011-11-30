@@ -316,35 +316,35 @@ public abstract class Tree<T> {
 		@Override
 		public TreeIter<T> down() {
 
-			List<Node> sectionBeamList = new List<Node>();
+	           List<Node> sectionBeamList = new List<Node>();
 
-			if (current == null) {
-				Node n = this.iter.next();
+	           if (current == null) {
+	               Node n = this.iter.next();
 
-				if (n == null) {
-					return new TreeIterImp(sectionBeamList);
-				}
-				current = n;
+	               if (n == null) {
+	                   return new TreeIterImp(sectionBeamList);
+	               }
+	               current = n;
 
-			}
-			sectionBeamList.add(current);
+	           }
+	           sectionBeamList.add(current);
 
-			Node nextNode;
-			Node previousNode = current;
-			while (hasNext()) {
+	           Node nextNode;
+	           Node rootNode = current;
+	           
+	           while (hasNext()) {
 
-				nextNode = iter.next();
+	               nextNode = iter.next();
 
-				if (nextNode.depth >= previousNode.depth) {
-					sectionBeamList.add(nextNode);
-					previousNode = nextNode;
-				} else {
-					break;
-				}
+	               if (nextNode.depth > rootNode.depth) {
+	                   sectionBeamList.add(nextNode);
+	               } else {
+	                   break;
+	               }
 
-			}
-			return new TreeIterImp(sectionBeamList);
-		}
+	           }
+	           return new TreeIterImp(sectionBeamList);
+	       }
 
 	}
 
