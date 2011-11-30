@@ -1,8 +1,10 @@
 /**
- * Abstract class Tree.
+ * Abstract class Tree. Tree is a generic type with the type variable T
  * 
  * @author Gruppe222
  * 
+ * @param <T>
+ *            type variable
  */
 public abstract class Tree<T> {
 	protected List<Node> child = new List<Node>();
@@ -11,16 +13,21 @@ public abstract class Tree<T> {
 	// tree order output
 	protected String order = "";
 
-	
-	// evtl hier implementieren
-	//public abstract TreeIter<T> contains(T element);
+	/**
+	 * Checks if a tree contains an element.
+	 * 
+	 * @param element
+	 *            type T
+	 * @return a new TreeIter iterating over the found element and the elements
+	 *         of the subtree.
+	 */
 	public TreeIter<T> contains(T element) {
 		Iter<Boolean> iter = search(element);
 		Node n;
-		
+
 		if (iter != null) {
 			n = this.root;
-			
+
 			while (iter.hasNext()) {
 				// left sub-tree
 				if (iter.next() == false)
@@ -31,42 +38,64 @@ public abstract class Tree<T> {
 			}
 		} else
 			return null;
-		
+
 		this.child = new List<Node>();
-		
+
 		inorderTraverse(n);
-		
+
 		return new TreeIterImp();
 	}
 
 	/**
-	 * Preorder method
-	 * First root node then walk trough the left sub-tree
-	 * and then trough the right sub-tree
+	 * Inorder method First root node then walk trough the left sub-tree and
+	 * then trough the right sub-tree
 	 * 
-	 * @param node root node
+	 * @param node
+	 *            root node
 	 */
 	private void inorderTraverse(Node node) {
-		if (node == null) 
+		if (node == null)
 			return;
 
-		inorderTraverse(node.left);	// walk trough left sub-tree
+		inorderTraverse(node.left); // walk trough left sub-tree
 		this.child.add(node);
-		inorderTraverse(node.right);	// walk trough right sub-tree
+		inorderTraverse(node.right); // walk trough right sub-tree
 	}
 
+	/**
+	 * Abstract method search should be implemented by subtypes of tree.
+	 * Searches an element in a tree.
+	 * 
+	 * @param element
+	 *            type T
+	 * @return Iter<Boolean> an Iterator describing the path to the located
+	 *         element.
+	 */
 	public abstract Iter<Boolean> search(T element);
 
+	/**
+	 * Abstract method add should be implemented by subtypes of tree. Adds an
+	 * element to the tree.
+	 * 
+	 * @param element
+	 *            type T
+	 */
 	public abstract void add(T element);
 
+	/**
+	 * Abstract method iterator should be implemented by subtypes of tree.
+	 * Returns an iterator over the tree.
+	 * 
+	 * @return TreeIter<T> an iterator
+	 */
 	public abstract TreeIter<T> iterator();
-	
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
 
 		String p = traverseForToString();
@@ -76,16 +105,16 @@ public abstract class Tree<T> {
 			p = p.substring(1, p.length());
 
 		order = "";
-		return  p;
+		return p;
 
 	}
-	
+
 	/**
-	 * Use preorder traversal for getting an adequate String represanation for
+	 * Use preorder traversal for getting an adequate String representation for
 	 * the tree.
 	 * 
 	 * @param node
-	 *            usually the root of the tree.
+	 *            commonly the root of the tree.
 	 */
 	private void preorderTraverseForToString(Node node) {
 		if (node == null)
@@ -110,7 +139,7 @@ public abstract class Tree<T> {
 
 		return this.order;
 	}
-	
+
 	/**
 	 * Sets the depth for each node of a tree.
 	 * 
@@ -121,7 +150,7 @@ public abstract class Tree<T> {
 		Stack<Node> stack = new Stack<Node>();
 
 		root.depth = 0;
-		
+
 		// push root to the stack
 		stack.push(root);
 
@@ -135,7 +164,7 @@ public abstract class Tree<T> {
 					int leftOfTempDepth = temp.depth + 1;
 
 					temp.left.depth = leftOfTempDepth;
-					
+
 					stack.push(temp.left);
 				}
 
@@ -143,7 +172,7 @@ public abstract class Tree<T> {
 					int rightOfTempDepth = temp.depth + 1;
 
 					temp.right.depth = rightOfTempDepth;
-					
+
 					stack.push(temp.right);
 				}
 			}
@@ -152,7 +181,12 @@ public abstract class Tree<T> {
 
 	}
 
-
+	/**
+	 * Inner class Node represents a node of a tree.
+	 * 
+	 * @author Gruppe222
+	 * 
+	 */
 	protected class Node {
 		protected T element;
 		protected Node left;
@@ -160,9 +194,16 @@ public abstract class Tree<T> {
 		protected Node parent;
 		protected int depth;
 
+		/**
+		 * Constructor
+		 * 
+		 * @param element
+		 *            type T
+		 */
 		Node(T element) {
 			this.element = element;
 		}
+
 		/*
 		 * (non-Javadoc)
 		 * 
@@ -174,10 +215,11 @@ public abstract class Tree<T> {
 		}
 
 		/**
-		 * Calculates the hardspaces to add for the toString method according to the
-		 * depth
+		 * Calculates the hardspaces to add for the toString method according to
+		 * the depth
 		 * 
-		 * @param depth the depth of a node
+		 * @param depth
+		 *            the depth of a node
 		 * @return amount of hardspaces
 		 */
 		private String calculateHardspaces(int depth) {
@@ -191,18 +233,38 @@ public abstract class Tree<T> {
 
 	}
 
+	/**
+	 * Inner class TreeIterImp implements TreeIter<T>
+	 * 
+	 * @author Gruppe222
+	 * 
+	 */
 	protected class TreeIterImp implements TreeIter<T> {
 		private Iter<Node> iter = null;
 		protected Node current = null;
 
+		/**
+		 * Constructor
+		 */
 		public TreeIterImp() {
 			this.iter = child.iter();
 		}
-		
+
+		/**
+		 * Alternative constructor needed for down method.
+		 * 
+		 * @param sectionBeamList
+		 *            the list of the section beam.
+		 */
 		public TreeIterImp(List<Node> sectionBeamList) {
 			this.iter = sectionBeamList.iter();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see Iter#next()
+		 */
 		@Override
 		public T next() {
 			Node n = this.iter.next();
@@ -212,6 +274,11 @@ public abstract class Tree<T> {
 			return current.element;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see Iter#previous()
+		 */
 		@Override
 		public T previous() {
 			Node n = this.iter.previous();
@@ -221,49 +288,78 @@ public abstract class Tree<T> {
 			return current.element;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see Iter#hasNext()
+		 */
 		@Override
 		public boolean hasNext() {
 			return this.iter.hasNext();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see Iter#hasPrevious()
+		 */
 		@Override
 		public boolean hasPrevious() {
 			return this.iter.hasPrevious();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see TreeIter#down()
+		 */
 		@Override
 		public TreeIter<T> down() {
-			
+
 			List<Node> sectionBeamList = new List<Node>();
-			
+
 			if (current == null) {
 				Node n = this.iter.next();
-				
+
 				if (n == null) {
 					return new TreeIterImp(sectionBeamList);
 				}
 				current = n;
-				
+
 			}
 			sectionBeamList.add(current);
-			
+
 			while (hasNext()) {
 				sectionBeamList.add(iter.next());
 			}
-			
+
 			return new TreeIterImp(sectionBeamList);
 		}
 
 	}
 
+	/**
+	 * Inner class SearchIterImp implements the interface Iter<Boolean> and
+	 * represents a search Iterator
+	 * 
+	 * @author Gruppe222
+	 * 
+	 */
 	protected class SearchIterImp implements Iter<Boolean> {
 		private Iter<Boolean> iter = null;
 		protected Boolean current = null;
 
+		/**
+		 * Constructor
+		 */
 		public SearchIterImp() {
 			this.iter = b.iter();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see Iter#next()
+		 */
 		@Override
 		public Boolean next() {
 			Boolean n = this.iter.next();
@@ -272,7 +368,10 @@ public abstract class Tree<T> {
 
 			return current;
 		}
-
+		/*
+		 * (non-Javadoc)
+		 * @see Iter#previous()
+		 */
 		@Override
 		public Boolean previous() {
 			Boolean n = this.iter.previous();
@@ -282,11 +381,19 @@ public abstract class Tree<T> {
 			return current;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see Iter#hasNext()
+		 */
 		@Override
 		public boolean hasNext() {
 			return this.iter.hasNext();
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * @see Iter#hasPrevious()
+		 */
 		@Override
 		public boolean hasPrevious() {
 			return this.iter.hasPrevious();
