@@ -107,6 +107,16 @@ public class Test {
 		System.out.println(tree1);
 		
 		System.out.println();
+		System.out.println("--Tree down()");
+		TreeIter<String> it3_1 = tree1.iterator();
+		
+		TreeIter<String> it4_1 = it3_1.down();
+		while (it4_1.hasNext()) {
+			System.out.print(it4_1.next() + " ");
+		}
+		
+		
+		System.out.println();
 		System.out.println("----------InorderTree<Integer>----------");
 		
 		/*
