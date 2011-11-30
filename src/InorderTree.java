@@ -1,25 +1,26 @@
 /**
- * InorderTree class extends SortedTree and
- * implements inorder traverse method
+ * InorderTree class extends SortedTree and implements inorder traverse method.
+ * InorderTree is a generic type with type variable T.
  * 
  * @author Gruppe222
- *
+ * 
  */
 public class InorderTree<T extends Comparable<? super T>> extends SortedTree<T> {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see Tree#iterator()
 	 */
 	@Override
 	public TreeIter<T> iterator() {
-		
+
 		this.child = new List<Node>();
 		traverse();
-		
+
 		return new TreeIterImp();
 	}
-	
+
 	/**
 	 * traverse tree
 	 */
@@ -29,19 +30,19 @@ public class InorderTree<T extends Comparable<? super T>> extends SortedTree<T> 
 	}
 
 	/**
-	 * First walk trough left sub-tree then root
-	 * and then walk trough the right sub-tree
+	 * First walk trough left sub-tree then root and then walk trough the right
+	 * sub-tree
 	 * 
-	 * @param node root node
+	 * @param node
+	 *            root node
 	 */
 	private void inorderTraverse(Node node) {
-		if (node == null) 
+		if (node == null)
 			return;
 
-		inorderTraverse(node.left);		// walk trough left sub-tree
+		inorderTraverse(node.left); // walk trough left sub-tree
 		this.child.add(node);
-		inorderTraverse(node.right);	// walk trough right sub-tree
+		inorderTraverse(node.right); // walk trough right sub-tree
 	}
-
 
 }
