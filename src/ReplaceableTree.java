@@ -156,7 +156,7 @@ public class ReplaceableTree<T> extends Tree<T> {
 	 * @param tree
 	 *            a Tree
 	 */
-	public void replace(Iter<Boolean> position, Tree<? extends T> tree) {
+	public <U extends T> void replace(Iter<Boolean> position, Tree<U> tree) {
 
 		if (this.root == null)
 			return;
@@ -205,7 +205,7 @@ public class ReplaceableTree<T> extends Tree<T> {
 	 * @param n 
 	 * @return rootNode
 	 */
-	private Node createSubTree(Tree<? extends T>.Node n) {
+	private <U extends T> Node createSubTree(Tree<U>.Node n) {
 
 		if (n != null) {
 			Node node = new Node(n.element);
