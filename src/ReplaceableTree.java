@@ -149,7 +149,7 @@ public class ReplaceableTree<T> extends Tree<T> {
 	}
 
 	/**
-	 * Replaces a Node with ah Subtree tree.
+	 * Replaces a Node with a Subtree tree.
 	 * 
 	 * @param position
 	 *            as iterator<Boolean>
