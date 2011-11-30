@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 /**
  * PreplaceableTree class extends StringTree and
@@ -133,14 +133,15 @@ public class ReplaceableTree<T> extends Tree<T> {
 		if(this.root == null)
 			return;
 		
-		Tree<? extends T> temp = tree.clone();
-		
+		Node sub = createSubTree(tree.root);
+	
 		Node n = this.root;
 		Node parent = null;
 		Boolean direction = null;
+
 		// there is min one position
 		while(position.hasNext()){
-			
+
 			// If Parent of the next Node is null, we can abort 
 			if(n == null)
 				return;
@@ -153,33 +154,41 @@ public class ReplaceableTree<T> extends Tree<T> {
 				n = n.right;
 			}
 		}
-		
+
 		// check a second time, if parent is null
 		if(parent == null)
 			return;
 		else{
-			
 			// depending of the last direction, set new tree left or right
 			if(!direction){
-		//		parent.left = temp.root;
+				parent.left = sub;
 			}else{
-	//			parent.right = temp.root;
+				parent.right = sub;
 			}
-		//	temp.root.parent = parent;
-
+			sub.parent = parent;
+			setDepth(this.root);
 		}
 	
 	}
 	
-	@Override
-	public Tree<T> clone() {
-		
-		ReplaceableTree<T> tmp =  new ReplaceableTree<T>();
-		tmp.root = this.root.deepCopy();
-		tmp.setDepth(tmp.root);
-		return tmp;
-		
-	}
 
 	
+	/**
+	 * Creates a Subtree withe Node Typ T
+	 * @param n
+	 * @return rootNode
+	 */
+	private Node createSubTree( Tree< ? extends T>.Node n){
+		
+		if(n != null){
+			Node node = new Node(n.element);
+		
+			node.left = createSubTree(n.left);
+			node.right= createSubTree(n.right);
+			return node;
+		}else
+			return null;
+	}
+
+
 }

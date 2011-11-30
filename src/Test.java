@@ -1,4 +1,9 @@
-
+/**
+ * Test class
+ * 
+ * @author Gruppe222
+ *
+ */
 public class Test {
 
 	/**
@@ -70,7 +75,7 @@ public class Test {
 		System.out.println(tree1_1);
 		
 		// replace hugo -> it2_tree1
-		//TODO tree1.replace(it2_tree1, tree1_1);
+		tree1.replace(it2_tree1, tree1_1);
 		
 		System.out.println();
 		System.out.println(tree1);
@@ -254,20 +259,20 @@ public class Test {
 		Iter<Boolean> it2_tree5 = tree5.search(new Student("Gerd Lauf", 58));
 		Iter<Boolean> it3_tree5 = tree5.search(new Student("Benjamin Pogner", 45));
 		
-		while (it2_tree5.hasNext()) {
-			System.out.print(it2_tree5.next() + " ");
-		}
-		
-		//TODO
+
 		//replace Gerd Lauf -> it2_tree5
-		//tree5.replace(it2_tree5, tree3);
-		//tree5.replace(it3_tree5, tree4);
+		tree5.replace(it2_tree5, tree3);
+		tree5.replace(it3_tree5, tree4);
 		
-		//TODO TreeIter<Person> it4_tree5 = tree5.iterator().down();
+		System.out.println();
+		System.out.println("--Tree replace with tree3 and 4 toString()");
+		System.out.println(tree5);
 		
-		//while (it4_tree5.hasNext()) {
-		//	System.out.print(it4_tree5.next() + " ");
-		//}
+		TreeIter<Person> it4_tree5 = tree5.iterator().down();
+		
+		while (it4_tree5.hasNext()) {
+			System.out.print(it4_tree5.next() + " ");
+		}
 	}
 
 }

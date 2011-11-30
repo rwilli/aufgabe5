@@ -1,4 +1,9 @@
-
+/**
+ * Class professor extends person
+ * 
+ * @author Gruppe222
+ *
+ */
 public class Professor extends Person {
 	private String institut;
 	

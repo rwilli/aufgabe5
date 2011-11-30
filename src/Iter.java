@@ -1,5 +1,11 @@
-
+/**
+ * 
+ * @author Gruppe222
+ *
+ * @param <T>
+ */
 public interface Iter<T> {
+	
 	/**
 	 * returns the next element in the iteration
 	 * 

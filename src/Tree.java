@@ -38,11 +38,6 @@ public abstract class Tree<T> {
 		
 		return new TreeIterImp();
 	}
-	
-	private void traverse() {
-		if (this.root != null)
-			inorderTraverse(this.root);
-	}
 
 	/**
 	 * Preorder method
@@ -66,7 +61,6 @@ public abstract class Tree<T> {
 
 	public abstract TreeIter<T> iterator();
 	
-	public abstract Tree<T> clone();
 
 	/*
 	 * (non-Javadoc)
@@ -169,18 +163,6 @@ public abstract class Tree<T> {
 		Node(T element) {
 			this.element = element;
 		}
-		Node(T element, Node left, Node right){
-			this.element = element;
-			this.left = left;
-			this.right = right;
-		}
-		
-		 public Node deepCopy() { //recursive!
-			 
-			 return new Node(element,left.deepCopy(),right.deepCopy());
-		 }
-
-
 		/*
 		 * (non-Javadoc)
 		 * 

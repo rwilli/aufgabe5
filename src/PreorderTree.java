@@ -7,6 +7,10 @@
  */
 public class PreorderTree<T extends Comparable<? super T>> extends SortedTree<T> {
 	
+	/*
+	 * (non-Javadoc)
+	 * @see Tree#iterator()
+	 */
 	@Override
 	public TreeIter<T> iterator() {
 		
@@ -16,13 +20,15 @@ public class PreorderTree<T extends Comparable<? super T>> extends SortedTree<T>
 		return new TreeIterImp();
 	}
 	
+	/**
+	 * traverse method
+	 */
 	private void traverse() {
 		if (this.root != null)
 			preorderTraverse(this.root);
 	}
 
 	/**
-	 * Preorder method
 	 * First root node then walk trough the left sub-tree
 	 * and then trough the right sub-tree
 	 * 
@@ -36,14 +42,6 @@ public class PreorderTree<T extends Comparable<? super T>> extends SortedTree<T>
 		preorderTraverse(node.left);	// walk trough left sub-tree
 		preorderTraverse(node.right);	// walk trough right sub-tree
 	}
-	@Override
-	public Tree<T> clone() {
-		
-		PreorderTree<T> tmp =  new PreorderTree<T>();
-		tmp.root = this.root.deepCopy();
-		tmp.setDepth(tmp.root);
-		return tmp;
-		
-	}
+
 
 }
