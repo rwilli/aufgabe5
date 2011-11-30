@@ -1,6 +1,7 @@
 /**
  * PostorderTree class extends SortedTree and
- * implements postorder traverse method
+ * implements postorder traverse method.
+ * PostorderTree is a generic type with type variable T.
  * 
  * @author Gruppe222
  *

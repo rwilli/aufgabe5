@@ -1,6 +1,7 @@
 /**
  * PreorderTree class extends SortedTree and
  * implements preorder traverse method
+ * PreorderTree is a generic type with type variable T.
  * 
  * @author Gruppe222
  *
