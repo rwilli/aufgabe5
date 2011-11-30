@@ -74,8 +74,11 @@ public class Test {
 		System.out.println("---Tree toString()");
 		System.out.println(tree1_1);
 		
+		System.out.println("---Replaced Tree toString()");
+
+		Iter<Boolean> it2_1_tree1 = tree1.search("hugo");
 		// replace hugo -> it2_tree1
-		tree1.replace(it2_tree1, tree1_1);
+		tree1.replace(it2_1_tree1, tree1_1);
 		
 		System.out.println();
 		System.out.println(tree1);
